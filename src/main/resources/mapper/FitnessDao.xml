@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.FitnessDao">
+    <insert id="insertFitness" parameterType="Fitness">
+        INSERT IGNORE INTO fitness (sid, fyear, fheig, fweig, frun, fjump, fwalk, fup, fahead)
+        VALUES (#{sid}, #{fyear}, #{fheig}, #{fweig}, #{frun}, #{fjump}, #{fwalk}, #{fup}, #{fahead})
+    </insert>
+    <select id="queryFitness" resultType="Fitness">
+        SELECT *
+        FROM fitness
+        WHERE sid = #{sid} AND fyear = #{fyear}
+    </select>
+</mapper>
