@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.StudentDao">
+    <!--目的:为DAO接口提供sql语句配置-->
+    <!--1.插入学生信息(insert),主键重复也不报错(不插入).这里不能一个对象直接插入吗?-->
+    <insert id="insertStudent" parameterType="Student">
+        INSERT IGNORE INTO student
+        (sid, sname, ssex, smajor, syear, sclass, sdorm, stele, spoo, speo, addr, telopm)
+        VALUES
+            (#{sid}, #{sname}, #{ssex}, #{smajor}, #{syear}, #{sclass}, #{sdorm}, #{stele}, #{spoo}, #{speo}, #{addr},
+             #{telopm})
+    </insert>
+    <!--2.根据学号查询密码-->
+    <select id="queryPasswd" parameterType="int" resultType="String">
+        SELECT spasswd
+        FROM student
+        WHERE sid = #{sid}
+    </select>
+    <!--3.根据学号获取学生对象-->
+    <select id="queryBySid" parameterType="int" resultType="Student">
+        SELECT *
+        FROM student
+        WHERE sid = #{sid}
+    </select>
+</mapper>
