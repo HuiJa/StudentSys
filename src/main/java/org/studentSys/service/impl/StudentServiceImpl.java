@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.studentSys.dao.StudentDao;
 import org.studentSys.service.StudentService;
+import org.studentSys.util.EncryptionUtil;
 
 /**
  * Created by HuiJa on 2018/4/26.
@@ -30,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
      */
     @Override
     public int studentLogin(int sid, String spasswd) {
-        if (spasswd.equals(studentDao.queryPasswd(sid))) {
+        if (EncryptionUtil.StrEncoder(spasswd,"SHA-256").equals(studentDao.queryPasswd(sid))) {
             return 0;
         }
         return -1;

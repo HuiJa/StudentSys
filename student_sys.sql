@@ -10,6 +10,7 @@
 CREATE DATABASE student_sys;
 USE student_sys;
 -- 2.创建学生基础信息表(主键为学号)
+-- 默认密码为SHA-256加密的now888
 CREATE TABLE student (
   sid     INT(8) ZEROFILL               NOT NULL PRIMARY KEY
   COMMENT '学号',
@@ -17,7 +18,7 @@ CREATE TABLE student (
   COMMENT '学生名字',
   ssex    ENUM ('男', '女')               NOT NULL
   COMMENT '学生性别',
-  spasswd VARCHAR(50)                   NOT NULL DEFAULT 'now888'
+  spasswd VARCHAR(200)                   NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f'
   COMMENT '密码',
   smajor  ENUM ('计科', '信科', '信安', '网络') NOT NULL
   COMMENT '专业',
@@ -45,7 +46,7 @@ CREATE TABLE student (
   COMMENT '学生基础信息表';
 -- 插入一条学生信息,采用默认密码
 INSERT INTO student (sid, sname, ssex, smajor, syear, sclass, sdorm, stele, spoo, speo, addr, telopm)
-VALUES (8148888, '王大锤', '男', '计科', '2014', '2班', '梅2A318', '17501520888', '江苏南京', '汉', '江苏无锡', '15061880888');
+VALUES (8148888, '王大锤', '男', '计科', 2014, '2班', '梅2A318', '17501520888', '江苏南京', '汉', '江苏无锡', '15061880888');
 
 -- 3.创建身体健康表
 CREATE TABLE fitness (
@@ -111,7 +112,24 @@ INSERT INTO grade (cid, sid, gresult, gtime)
 VALUES (2014111, 8148888, 89, '2018-05-01'), (2014112, 8148888, 88, '2018-05-01'),
   (2014113, 8148888, 87, '2018-05-01'), (2014114, 8148888, 86, '2018-05-01');
 
--- 6.创建评价表
+-- 6.创建教师基础信息表(主键为工号)
+-- 默认密码为SHA-256加密的now888
+CREATE TABLE teacher (
+  tid     INT(8) ZEROFILL NOT NULL PRIMARY KEY,
+  syear   INT             NOT NULL,
+  sclass  VARCHAR(50)     NOT NULL,
+  tpasswd VARCHAR(200)     NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f',
+  UNIQUE KEY (syear, sclass)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT '班主任信息表';
+
+-- 插入一条教师信息
+INSERT INTO teacher (tid, syear, sclass)
+VALUES (8148888, 2014, '2班');
+
+-- 7.创建评价表
 CREATE TABLE review (
   rid   INT                     NOT NULL  PRIMARY KEY AUTO_INCREMENT,
   sid   INT(8) ZEROFILL         NOT NULL,
@@ -131,7 +149,7 @@ VALUES (8148888, '教师', '该同学刻苦认真', '2018-05-01'),
   (8148888, '同学', '王同学乐于助人', '2018-05-01'),
   (8148888, '自己', '我还有很多不足', '2018-05-01');
 
--- 7.创建课外发展记录表extra
+-- 8.创建课外发展记录表extra
 CREATE TABLE extra (
   eid    INT                           NOT NULL PRIMARY KEY AUTO_INCREMENT,
   sid    INT(8) ZEROFILL               NOT NULL,
