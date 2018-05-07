@@ -49,7 +49,7 @@ public class StudentController {
         int result = studentService.studentLogin(sid, spasswd);
         if (result == 0) {
             //登录成功,记录登录信息
-            Student student = studentDao.queryBySid(sid);
+            Student student = studentDao.queryStudent(sid);
             session.setAttribute("student", student);
             requestMap.put("student", student);
             view="redirect:/student/index-show";//重定向是requestMapping,其余都是返回jsp

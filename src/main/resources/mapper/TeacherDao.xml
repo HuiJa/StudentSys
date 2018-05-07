@@ -1,0 +1,10 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.TeacherDao">
+    <select id="queryTeacher" parameterType="int" resultType="Teacher">
+        SELECT *
+        FROM teacher
+        WHERE tid = #{tid}
+    </select>
+</mapper>

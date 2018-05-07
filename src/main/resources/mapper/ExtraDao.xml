@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.ExtraDao">
+    <insert id="insertExtra" parameterType="Extra">
+        INSERT IGNORE INTO extra (sid, etype, ename, estime, eetime)
+        VALUES (#{sid}, #{etype}, #{ename}, #{estime}, #{eetime})
+    </insert>
+    <select id="queryExtrasBySid" parameterType="int" resultType="Extra">
+        SELECT *
+        FROM extra
+        WHERE sid = #{sid}
+    </select>
+</mapper>

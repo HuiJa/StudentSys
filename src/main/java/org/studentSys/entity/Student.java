@@ -4,6 +4,7 @@ package org.studentSys.entity;
 import org.studentSys.enums.SexEnums;
 import org.studentSys.enums.SmajorEnums;
 import org.studentSys.enums.SpeoEnums;
+import org.studentSys.util.EncryptionUtil;
 
 /**
  * Created by HuiJa on 2018/4/26.
@@ -42,6 +43,11 @@ public class Student {
         this.speo = speo;
         this.addr = addr;
         this.telopm = telopm;
+    }
+
+
+    public void setSpasswd(String spasswd) {
+        this.spasswd = EncryptionUtil.StrEncoder(spasswd,"SHA-256");
     }
 
     @Override

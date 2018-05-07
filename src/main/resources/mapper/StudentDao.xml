@@ -18,7 +18,7 @@
         WHERE sid = #{sid}
     </select>
     <!--3.根据学号获取学生对象-->
-    <select id="queryBySid" parameterType="int" resultType="Student">
+    <select id="queryStudent" parameterType="int" resultType="Student">
         SELECT *
         FROM student
         WHERE sid = #{sid}

@@ -18,7 +18,7 @@ CREATE TABLE student (
   COMMENT '学生名字',
   ssex    ENUM ('男', '女')               NOT NULL
   COMMENT '学生性别',
-  spasswd VARCHAR(200)                   NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f'
+  spasswd VARCHAR(200)                  NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f'
   COMMENT '密码',
   smajor  ENUM ('计科', '信科', '信安', '网络') NOT NULL
   COMMENT '专业',
@@ -116,18 +116,20 @@ VALUES (2014111, 8148888, 89, '2018-05-01'), (2014112, 8148888, 88, '2018-05-01'
 -- 默认密码为SHA-256加密的now888
 CREATE TABLE teacher (
   tid     INT(8) ZEROFILL NOT NULL PRIMARY KEY,
+  tname   VARCHAR(50)     NOT NULL,
   syear   INT             NOT NULL,
   sclass  VARCHAR(50)     NOT NULL,
-  tpasswd VARCHAR(200)     NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f',
+  tpasswd VARCHAR(200)    NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f',
   UNIQUE KEY (syear, sclass)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   COMMENT '班主任信息表';
+-- 竟然忘记教师有名字..
 
 -- 插入一条教师信息
-INSERT INTO teacher (tid, syear, sclass)
-VALUES (8148888, 2014, '2班');
+INSERT INTO teacher (tid, tname, syear, sclass)
+VALUES (8148888, "王小锤", 2014, '2班');
 
 -- 7.创建评价表
 CREATE TABLE review (

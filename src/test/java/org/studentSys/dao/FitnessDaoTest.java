@@ -7,6 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.studentSys.entity.Fitness;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by HuiJa on 2018/5/1.
@@ -15,7 +16,9 @@ import javax.annotation.Resource;
 //告诉junit spring配置文件的位置
 @ContextConfiguration({"classpath:spring-config/spring-dao.xml"})
 public class FitnessDaoTest {
-    //这边注入一直显示错误,但其实没有错
+
+
+    //这边注入一直显示错误,但其实没有错,改一下判断等级就好了
     @Resource
     private FitnessDao fitnessDao;
 
@@ -27,8 +30,16 @@ public class FitnessDaoTest {
 
     @Test
     public void queryFitness() throws Exception {
-        Fitness fitness=fitnessDao.queryFitness(8148888, 2);
+        Fitness fitness = fitnessDao.queryFitness(8148888, 2);
         System.out.println(fitness.toString());
+    }
+
+    @Test
+    public void queryFitnessesBySid() throws Exception {
+        List<Fitness> fitnessList = fitnessDao.queryFitnessesBySid(8148888);
+        for (Fitness fitness : fitnessList) {
+            System.out.println(fitness);
+        }
     }
 
 }

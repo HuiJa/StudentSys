@@ -11,4 +11,9 @@
         FROM fitness
         WHERE sid = #{sid} AND fyear = #{fyear}
     </select>
+    <select id="queryFitnessesBySid" parameterType="int" resultType="Fitness">
+        SELECT *
+        FROM fitness
+        WHERE sid = #{sid}
+    </select>
 </mapper>

@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.GradeDao">
+    <insert id="insertGrade" parameterType="Grade">
+        INSERT IGNORE INTO grade (cid, sid, gresult, gtime)
+        VALUES (#{cid}, #{sid}, #{gresult}, #{gtime})
+    </insert>
+    <select id="queryGradesBySid" parameterType="int" resultType="Grade">
+        SELECT *
+        FROM grade
+        WHERE sid = #{sid}
+    </select>
+</mapper>

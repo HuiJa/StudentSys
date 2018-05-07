@@ -3,6 +3,8 @@ package org.studentSys.dao;
 import org.apache.ibatis.annotations.Param;
 import org.studentSys.entity.Fitness;
 
+import java.util.List;
+
 /**
  * Created by HuiJa on 2018/5/1.
  */
@@ -21,5 +23,12 @@ public interface FitnessDao {
      * @return
      */
     Fitness queryFitness(@Param("sid") int sid, @Param("fyear") int fyear);
+
+    /**
+     * 3.根据学号查询体测信息
+     * @param sid
+     * @return
+     */
+    List<Fitness> queryFitnessesBySid(int sid);
 
 }

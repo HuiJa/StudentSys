@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.ReviewDao">
+    <insert id="insertReview" parameterType="Review">
+        INSERT IGNORE INTO review (sid, rtype, rcont, rdate)
+        VALUES (#{sid}, #{rtype}, #{rcont}, #{rdate})
+    </insert>
+    <select id="queryReviewsBySid" parameterType="int" resultType="Review">
+        SELECT *
+        FROM review
+        WHERE sid = #{sid}
+    </select>
+</mapper>

@@ -37,9 +37,9 @@ public class StudentDaoTest {
     }
 
     @Test
-    public void queryBySid() throws Exception {
+    public void queryStudent() throws Exception {
         int sid=8148888;
-        Student student=studentDao.queryBySid(sid);
+        Student student=studentDao.queryStudent(sid);
         System.out.println(student.toString());
     }
 

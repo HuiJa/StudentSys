@@ -26,5 +26,5 @@ public interface StudentDao {
      * @param sid
      * @return
      */
-    Student queryBySid(int sid);
+    Student queryStudent(int sid);
 }
