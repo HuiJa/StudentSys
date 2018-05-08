@@ -4,6 +4,7 @@ package org.studentSys.service;
  * Created by HuiJa on 2018/4/26.
  */
 public interface StudentService {
+    //TODO 如果学生跟教师都没有注册怎么准确返回结果
     /**
      * 1. 学生登录
      * @param sid

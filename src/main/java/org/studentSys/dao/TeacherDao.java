@@ -12,5 +12,12 @@ public interface TeacherDao {
      * @return
      */
     Teacher queryTeacher(int tid);
+    /**
+     * 2.根据工号查询密码,dao名query,service名get
+     *
+     * @param tid
+     * @return
+     */
+    String queryPasswd(int tid);
 
 }

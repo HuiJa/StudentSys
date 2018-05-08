@@ -14,8 +14,8 @@ import org.studentSys.util.EncryptionUtil;
  */
 @Service
 public class StudentServiceImpl implements StudentService {
-    //创建日志对象
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    //创建日志对象,比如异常的时候记录一下啊什么的,懒得弄.
+    //private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //注入dao依赖
     @Autowired

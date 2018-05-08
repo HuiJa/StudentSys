@@ -7,4 +7,10 @@
         FROM teacher
         WHERE tid = #{tid}
     </select>
+    <!--2.根据工号查询密码-->
+    <select id="queryPasswd" parameterType="int" resultType="String">
+        SELECT tpasswd
+        FROM teacher
+        WHERE tid = #{tid}
+    </select>
 </mapper>

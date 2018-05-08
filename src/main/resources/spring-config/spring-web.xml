@@ -25,11 +25,17 @@ http://www.springframework.org/schema/beans/spring-beans.xsd     http://www.spri
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
-    <!--5. 配置管理员登录验证拦截器 -->
+    <!--5. 配置登录验证拦截器 -->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/student/index-show"/>
+            <mvc:mapping path="/student/*"/>
             <bean class="org.studentSys.interceptor.StudentLoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/teacher/*"/>
+            <bean class="org.studentSys.interceptor.TeacherLoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

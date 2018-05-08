@@ -22,8 +22,14 @@ public class TeacherDaoTest {
 
     @Test
     public void queryTeacher() throws Exception {
-        Teacher teacher=teacherDao.queryTeacher(8148888);
+        Teacher teacher = teacherDao.queryTeacher(8148888);
         System.out.println(teacher.toString());
+    }
+
+    @Test
+    public void queryPasswd() throws Exception {
+        int tid = 8148888;
+        System.out.println(teacherDao.queryPasswd(tid));
     }
 
 }

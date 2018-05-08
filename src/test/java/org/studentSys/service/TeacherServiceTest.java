@@ -2,30 +2,27 @@ package org.studentSys.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.studentSys.util.EncryptionUtil;
+import org.studentSys.dao.TeacherDao;
+
+import static org.junit.Assert.*;
 
 /**
- * Created by HuiJa on 2018/4/26.
+ * Created by HuiJa on 2018/5/8.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-config/spring-dao.xml",
         "classpath:spring-config/spring-service.xml"})
-public class StudentServiceTest {
-    //创建日志对象
-    //private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class TeacherServiceTest {
 
-    //注入依赖
     @Autowired
-    private StudentService studentService;
+    private TeacherService teacherService;
 
     @Test
-    public void studentLogin() throws Exception {
-        System.out.println(studentService.studentLogin(8148888,"now888"));
+    public void teacherLogin() throws Exception {
+        System.out.println(teacherService.teacherLogin(8148888,"now888"));
     }
 
 }
