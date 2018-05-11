@@ -32,6 +32,21 @@ public class LoginController {
     private TeacherDao teacherDao;
 
     /**
+     * 0.显示介绍主页
+     *
+     * @return
+     */
+    @RequestMapping(value = "/Introduction")
+    public String introdution(HttpSession session, Map<String, Object> requestMap) {
+        Student student = (Student) session.getAttribute("student");
+        if (student != null) {
+            requestMap.put("student", student);
+        } else requestMap.put("teacher", "hello");
+        //因为这个页面不需要显示用户信息,只需要判断登录信息,从简了
+        return "/index/studentSys_index";
+    }
+
+    /**
      * 1.登录页显示
      *
      * @return
@@ -115,7 +130,7 @@ public class LoginController {
 
     @RequestMapping(value = "/teacher/index-show")
     public String teaIndexShow(Map<String, Object> requestMap, HttpSession session) {
-        requestMap.put("teachre", (Teacher) session.getAttribute("teacher"));//主页显示用户信息用
+        requestMap.put("teacher", (Teacher) session.getAttribute("teacher"));//主页显示用户信息用
         String view = "/index/teacher_index";
         return view;
     }

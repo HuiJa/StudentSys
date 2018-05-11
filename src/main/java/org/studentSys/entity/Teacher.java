@@ -22,6 +22,10 @@ public class Teacher {
         this.sclass = sclass;
     }
 
+    public String getTname() {
+        return tname;
+    }
+
     public void setTpasswd(String tpasswd) {
         this.tpasswd = EncryptionUtil.StrEncoder(tpasswd, "SHA-256");
     }

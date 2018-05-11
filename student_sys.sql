@@ -129,7 +129,7 @@ CREATE TABLE teacher (
 
 -- 插入一条教师信息
 INSERT INTO teacher (tid, tname, syear, sclass)
-VALUES (8148888, "王小锤", 2014, '2班');
+VALUES (8143888, "王小锤", 2014, '2班');
 
 -- 7.创建评价表
 CREATE TABLE review (

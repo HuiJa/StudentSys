@@ -45,6 +45,9 @@ public class Student {
         this.telopm = telopm;
     }
 
+    public String getSname() {
+        return sname;
+    }
 
     public void setSpasswd(String spasswd) {
         this.spasswd = EncryptionUtil.StrEncoder(spasswd,"SHA-256");
