@@ -8,18 +8,10 @@
 <%@include file="../common/tag.jsp" %>
 <!--后面用到的标签例如c-->
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
     <title>登录页面</title>
-    <!--移动设备支持-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <!--css,js依赖(bootstrap,jquery,font)-->
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <%@include file="../common/head_css.jsp" %>
 </head>
 
 <body class="bg-info">
@@ -43,7 +35,7 @@
                         <input type="radio" name="kind" value="stu" required> 学生
                     </div>
                     <c:if test="${requestScope.LoginError == 1 }">
-                        <span style="color:#f44336;">用户名或密码输入有误!请检查后重新输入</span>
+                        <span style="color:#f44336;">用户名不存在或者密码错误!请检查后重新输入</span>
                     </c:if>
                     <button type="submit" class="btn btn-success btn-block">
                         登录
@@ -65,6 +57,7 @@
 
 </div>
   
+<%@include file="../common/end_js.jsp" %>
 </body>
 
 </html>
