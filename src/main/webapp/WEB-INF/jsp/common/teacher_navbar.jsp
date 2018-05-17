@@ -4,6 +4,7 @@
   Date: 2018/5/11
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--导航栏-->
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
@@ -19,9 +20,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/teacher/index-show">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="${pageContext.request.contextPath}/teacher/index-show">主页</a></li>
+                <li><a href="#about">个人信息</a></li>
+                <li><a href="#contact">学生信息</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li style="font-size: 25px;color: #888888">Hello,${requestScope.teacher.tname}</li>

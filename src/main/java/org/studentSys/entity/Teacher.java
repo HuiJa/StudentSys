@@ -10,16 +10,18 @@ public class Teacher {
     private String tname;
     private int syear;
     private String sclass;
+    private String ttele;
     private String tpasswd;
 
     public Teacher() {
     }
 
-    public Teacher(int tid, String tname, int syear, String sclass) {
+    public Teacher(int tid, String tname, int syear, String sclass, String ttele) {
         this.tid = tid;
         this.tname = tname;
         this.syear = syear;
         this.sclass = sclass;
+        this.ttele = ttele;
     }
 
     public String getTname() {
@@ -42,6 +44,7 @@ public class Teacher {
                 ", tname='" + tname + '\'' +
                 ", syear=" + syear +
                 ", sclass='" + sclass + '\'' +
+                ", ttele='" + ttele + '\'' +
                 '}';
     }
 }

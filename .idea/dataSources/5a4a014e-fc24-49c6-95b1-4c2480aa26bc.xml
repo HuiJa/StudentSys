@@ -353,33 +353,43 @@ sid</ColNames>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="21" name="syear">
+    <column id="79" parent="21" name="tname">
       <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="80" parent="21" name="sclass">
-      <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="81" parent="21" name="tpasswd">
+    <column id="80" parent="21" name="syear">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="21" name="sclass">
       <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="21" name="ttele">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="21" name="tpasswd">
+      <Position>6</Position>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f&apos;</DefaultExpression>
     </column>
-    <index id="82" parent="21" name="syear">
+    <index id="84" parent="21" name="syear">
       <ColNames>syear
 sclass</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="83" parent="21" name="PRIMARY">
+    <key id="85" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="84" parent="21" name="syear">
+    <key id="86" parent="21" name="syear">
       <ColNames>syear
 sclass</ColNames>
       <UnderlyingIndexName>syear</UnderlyingIndexName>

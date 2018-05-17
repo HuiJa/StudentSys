@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by HuiJa on 2018/4/26.
+ * Created by HuiJa on 2018/5/17.
  */
-public class StudentLoginInterceptor implements HandlerInterceptor {
+public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession session = httpServletRequest.getSession();
-        if (session.getAttribute("student") == null) {
+        if (session.getAttribute("student") == null && session.getAttribute("teacher") == null) {
             httpServletResponse.sendRedirect("/login");//这个是和重定向相同
         }
         return true;

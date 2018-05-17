@@ -52,7 +52,7 @@
             <div class="mastfoot">
                 <div class="inner">
                     <p>Repository of <a href="https://github.com/HuiJa/StudentSys">StudentSys</a>, by <a
-                            href="https://huija.github.io">@huija</a>.</p>
+                            href="https://github.com/huija">@huija</a>.</p>
                 </div>
             </div>
 

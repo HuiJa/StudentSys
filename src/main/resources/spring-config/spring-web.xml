@@ -29,13 +29,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd     http://www.spri
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/student/*"/>
-            <bean class="org.studentSys.interceptor.StudentLoginInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
-    <mvc:interceptors>
-        <mvc:interceptor>
             <mvc:mapping path="/teacher/*"/>
-            <bean class="org.studentSys.interceptor.TeacherLoginInterceptor"/>
+            <mvc:mapping path="/Introduction"/>
+            <bean class="org.studentSys.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

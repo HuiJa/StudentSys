@@ -21,12 +21,13 @@
     <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-9">
             <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
             </p>
             <div class="jumbotron">
-                <h1>Hello, world!</h1>
-                <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some
-                    responsive-range viewport sizes to see it in action.</p>
+                <h1>StudentSys</h1>
+                <p>关于大学生成长轨迹,先进行如下分类:</p>
+                <p style="text-indent: 2em">首先,大学生的健康成长大致分成三大方面:生活方面,知识方面,心灵方面.</p>
+                <p style="text-indent: 2em">其次,按照阶段来可以分为四个阶段:初始阶段,积累阶段,拓展阶段,应用阶段.</p>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-lg-4">
@@ -77,11 +78,7 @@
         <%@include file="../common/teacher_sidebar.jsp" %>
     </div><!--/row-->
 
-    <hr>
-
-    <footer>
-        <p>&copy; Company 2018</p>
-    </footer>
+    <%@include file="../common/foot.jsp" %>
 
 </div><!--/.container-->
 
