@@ -8,8 +8,7 @@ import org.studentSys.util.EncryptionUtil;
 public class Teacher {
     private int tid;
     private String tname;
-    private int syear;
-    private String sclass;
+    private int xid;
     private String ttele;
     private String tpasswd;
 
@@ -19,8 +18,7 @@ public class Teacher {
     public Teacher(int tid, String tname, int syear, String sclass, String ttele) {
         this.tid = tid;
         this.tname = tname;
-        this.syear = syear;
-        this.sclass = sclass;
+        this.xid=xid;
         this.ttele = ttele;
     }
 
@@ -42,9 +40,9 @@ public class Teacher {
         return "Teacher{" +
                 "tid=" + tid +
                 ", tname='" + tname + '\'' +
-                ", syear=" + syear +
-                ", sclass='" + sclass + '\'' +
+                ", xid=" + xid +
                 ", ttele='" + ttele + '\'' +
+                ", tpasswd='" + tpasswd + '\'' +
                 '}';
     }
 }

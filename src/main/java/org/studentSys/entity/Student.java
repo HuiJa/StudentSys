@@ -15,8 +15,7 @@ public class Student {
     private SexEnums ssex;
     private String spasswd;
     private SmajorEnums smajor;
-    private int syear;
-    private String sclass;
+    private int xid;
     private String sdorm;
     private String stele;
     private String spoo;
@@ -29,14 +28,13 @@ public class Student {
     }
 
     public Student(int sid, String sname, SexEnums ssex, SmajorEnums smajor,
-                   int syear, String sclass, String sdorm, String stele,
+                   int xid, String sdorm, String stele,
                    String spoo, SpeoEnums speo, String addr, String telopm) {
         this.sid = sid;
         this.sname = sname;
         this.ssex = ssex;
         this.smajor = smajor;
-        this.syear = syear;
-        this.sclass = sclass;
+        this.xid=xid;
         this.sdorm = sdorm;
         this.stele = stele;
         this.spoo = spoo;
@@ -59,15 +57,16 @@ public class Student {
                 "sid=" + sid +
                 ", sname='" + sname + '\'' +
                 ", ssex=" + ssex +
+                ", spasswd='" + spasswd + '\'' +
                 ", smajor=" + smajor +
-                ", syear=" + syear +
-                ", sclass='" + sclass + '\'' +
+                ", xid=" + xid +
                 ", sdorm='" + sdorm + '\'' +
                 ", stele='" + stele + '\'' +
                 ", spoo='" + spoo + '\'' +
                 ", speo=" + speo +
                 ", addr='" + addr + '\'' +
                 ", telopm='" + telopm + '\'' +
+                ", sresult='" + sresult + '\'' +
                 '}';
     }
 }

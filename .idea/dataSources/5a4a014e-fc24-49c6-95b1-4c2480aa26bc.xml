@@ -18,381 +18,402 @@
     <schema id="12" parent="1" name="ssh_employee"/>
     <schema id="13" parent="1" name="sys"/>
     <schema id="14" parent="1" name="test"/>
-    <table id="15" parent="2" name="course">
+    <table id="15" parent="2" name="class">
       <Comment>课程表</Comment>
     </table>
-    <table id="16" parent="2" name="extra">
+    <table id="16" parent="2" name="course">
+      <Comment>课程表</Comment>
+    </table>
+    <table id="17" parent="2" name="extra">
       <Comment>课外发展记录 表</Comment>
     </table>
-    <table id="17" parent="2" name="fitness">
+    <table id="18" parent="2" name="fitness">
       <Comment>学生体侧健康表</Comment>
     </table>
-    <table id="18" parent="2" name="grade">
+    <table id="19" parent="2" name="grade">
       <Comment>成绩表</Comment>
     </table>
-    <table id="19" parent="2" name="review">
+    <table id="20" parent="2" name="review">
       <Comment>评价表</Comment>
     </table>
-    <table id="20" parent="2" name="student">
+    <table id="21" parent="2" name="student">
       <Comment>学生基础信息表</Comment>
     </table>
-    <table id="21" parent="2" name="teacher">
+    <table id="22" parent="2" name="teacher">
       <Comment>班主任信息表</Comment>
     </table>
-    <column id="22" parent="15" name="cid">
+    <column id="23" parent="15" name="xid">
       <Position>1</Position>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="15" name="cname">
+    <column id="24" parent="15" name="xyear">
       <Position>2</Position>
-      <DataType>varchar(200)|0</DataType>
+      <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="15" name="cyear">
+    <column id="25" parent="15" name="xnum">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="25" parent="15" name="PRIMARY">
+    <key id="26" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>xid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="16" name="cid">
+      <Position>1</Position>
+      <DataType>int(8) unsigned zerofill|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="16" name="cname">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="16" name="cyear">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="30" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="26" parent="16" name="eid">
+    <column id="31" parent="17" name="eid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="27" parent="16" name="sid">
+    <column id="32" parent="17" name="sid">
       <Position>2</Position>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="28" parent="16" name="etype">
+    <column id="33" parent="17" name="etype">
       <Position>3</Position>
-      <DataType>enum(&apos;实践&apos;, &apos;项目&apos;, &apos;锻炼&apos;, &apos;社团&apos;)|0</DataType>
+      <DataType>enum(&apos;实践&apos;, &apos;项目&apos;, &apos;锻炼&apos;, &apos;社团&apos;, &apos;奖惩&apos;, &apos;学习&apos;)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="16" name="ename">
+    <column id="34" parent="17" name="ename">
       <Position>4</Position>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="30" parent="16" name="estime">
+    <column id="35" parent="17" name="estime">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="31" parent="16" name="eetime">
+    <column id="36" parent="17" name="eetime">
       <Position>6</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="32" parent="16" name="sid">
+    <index id="37" parent="17" name="sid">
       <ColNames>sid</ColNames>
     </index>
-    <key id="33" parent="16" name="PRIMARY">
+    <key id="38" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>eid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="34" parent="16" name="extra_ibfk_1">
+    <foreign-key id="39" parent="17" name="extra_ibfk_1">
       <ColNames>sid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>sid</RefColNames>
     </foreign-key>
-    <column id="35" parent="17" name="sid">
+    <column id="40" parent="18" name="sid">
       <Position>1</Position>
       <Comment>学号</Comment>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="17" name="fyear">
+    <column id="41" parent="18" name="fyear">
       <Position>2</Position>
       <Comment>测试学年</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="37" parent="17" name="fheig">
+    <column id="42" parent="18" name="fheig">
       <Position>3</Position>
       <Comment>身高</Comment>
       <DataType>double(4,1)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="17" name="fweig">
+    <column id="43" parent="18" name="fweig">
       <Position>4</Position>
       <Comment>体重</Comment>
       <DataType>double(4,1)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="39" parent="17" name="frun">
+    <column id="44" parent="18" name="frun">
       <Position>5</Position>
       <Comment>50米</Comment>
       <DataType>double(4,1)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="40" parent="17" name="fjump">
+    <column id="45" parent="18" name="fjump">
       <Position>6</Position>
       <Comment>跳远</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="41" parent="17" name="fwalk">
+    <column id="46" parent="18" name="fwalk">
       <Position>7</Position>
       <Comment>1000米</Comment>
       <DataType>double(4,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="42" parent="17" name="fup">
+    <column id="47" parent="18" name="fup">
       <Position>8</Position>
       <Comment>引体向上</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="17" name="fahead">
+    <column id="48" parent="18" name="fahead">
       <Position>9</Position>
       <Comment>坐位体前屈</Comment>
       <DataType>double(4,1)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="44" parent="17" name="PRIMARY">
+    <key id="49" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sid
 fyear</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="45" parent="17" name="fitness_ibfk_1">
+    <foreign-key id="50" parent="18" name="fitness_ibfk_1">
       <ColNames>sid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>sid</RefColNames>
     </foreign-key>
-    <column id="46" parent="18" name="cid">
+    <column id="51" parent="19" name="cid">
       <Position>1</Position>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="47" parent="18" name="sid">
+    <column id="52" parent="19" name="sid">
       <Position>2</Position>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="48" parent="18" name="gresult">
+    <column id="53" parent="19" name="gresult">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="49" parent="18" name="gtime">
+    <column id="54" parent="19" name="gtime">
       <Position>4</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="18" name="greply">
+    <column id="55" parent="19" name="greply">
       <Position>5</Position>
       <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <index id="51" parent="18" name="sid">
+    <index id="56" parent="19" name="sid">
       <ColNames>sid</ColNames>
     </index>
-    <key id="52" parent="18" name="PRIMARY">
+    <key id="57" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cid
 sid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="53" parent="18" name="grade_ibfk_1">
+    <foreign-key id="58" parent="19" name="grade_ibfk_1">
       <ColNames>cid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
       <RefTableName>course</RefTableName>
       <RefColNames>cid</RefColNames>
     </foreign-key>
-    <foreign-key id="54" parent="18" name="grade_ibfk_2">
+    <foreign-key id="59" parent="19" name="grade_ibfk_2">
       <ColNames>sid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>sid</RefColNames>
     </foreign-key>
-    <column id="55" parent="19" name="rid">
+    <column id="60" parent="20" name="rid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="56" parent="19" name="sid">
+    <column id="61" parent="20" name="sid">
       <Position>2</Position>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="57" parent="19" name="rtype">
+    <column id="62" parent="20" name="rtype">
       <Position>3</Position>
       <DataType>enum(&apos;教师&apos;, &apos;同学&apos;, &apos;自己&apos;)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="58" parent="19" name="rcont">
+    <column id="63" parent="20" name="rcont">
       <Position>4</Position>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="59" parent="19" name="rdate">
+    <column id="64" parent="20" name="rdate">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="60" parent="19" name="sid">
+    <index id="65" parent="20" name="sid">
       <ColNames>sid</ColNames>
     </index>
-    <key id="61" parent="19" name="PRIMARY">
+    <key id="66" parent="20" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>rid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="62" parent="19" name="review_ibfk_1">
+    <foreign-key id="67" parent="20" name="review_ibfk_1">
       <ColNames>sid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>sid</RefColNames>
     </foreign-key>
-    <column id="63" parent="20" name="sid">
+    <column id="68" parent="21" name="sid">
       <Position>1</Position>
       <Comment>学号</Comment>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="64" parent="20" name="sname">
+    <column id="69" parent="21" name="sname">
       <Position>2</Position>
       <Comment>学生名字</Comment>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="65" parent="20" name="ssex">
+    <column id="70" parent="21" name="ssex">
       <Position>3</Position>
       <Comment>学生性别</Comment>
       <DataType>enum(&apos;男&apos;, &apos;女&apos;)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="66" parent="20" name="spasswd">
+    <column id="71" parent="21" name="spasswd">
       <Position>4</Position>
       <Comment>密码</Comment>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f&apos;</DefaultExpression>
     </column>
-    <column id="67" parent="20" name="smajor">
+    <column id="72" parent="21" name="smajor">
       <Position>5</Position>
       <Comment>专业</Comment>
       <DataType>enum(&apos;计科&apos;, &apos;信科&apos;, &apos;信安&apos;, &apos;网络&apos;)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="20" name="syear">
+    <column id="73" parent="21" name="xid">
       <Position>6</Position>
-      <Comment>入学年纪</Comment>
-      <DataType>int(11)|0</DataType>
+      <Comment>班级id</Comment>
+      <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="69" parent="20" name="sclass">
+    <column id="74" parent="21" name="sdorm">
       <Position>7</Position>
-      <Comment>班级</Comment>
-      <DataType>varchar(50)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="70" parent="20" name="sdorm">
-      <Position>8</Position>
       <Comment>宿舍号</Comment>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="71" parent="20" name="stele">
-      <Position>9</Position>
+    <column id="75" parent="21" name="stele">
+      <Position>8</Position>
       <Comment>电话</Comment>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="72" parent="20" name="spoo">
-      <Position>10</Position>
+    <column id="76" parent="21" name="spoo">
+      <Position>9</Position>
       <Comment>籍贯</Comment>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="73" parent="20" name="speo">
-      <Position>11</Position>
+    <column id="77" parent="21" name="speo">
+      <Position>10</Position>
       <Comment>民族</Comment>
       <DataType>enum(&apos;汉&apos;, &apos;其他&apos;)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="74" parent="20" name="addr">
-      <Position>12</Position>
+    <column id="78" parent="21" name="addr">
+      <Position>11</Position>
       <Comment>家庭住址</Comment>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="75" parent="20" name="telopm">
-      <Position>13</Position>
+    <column id="79" parent="21" name="telopm">
+      <Position>12</Position>
       <Comment>父母电话</Comment>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="76" parent="20" name="sresult">
-      <Position>14</Position>
+    <column id="80" parent="21" name="sresult">
+      <Position>13</Position>
       <Comment>最终去向</Comment>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;在读&apos;</DefaultExpression>
     </column>
-    <key id="77" parent="20" name="PRIMARY">
+    <index id="81" parent="21" name="xid">
+      <ColNames>xid</ColNames>
+    </index>
+    <key id="82" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="78" parent="21" name="tid">
+    <foreign-key id="83" parent="21" name="student_ibfk_1">
+      <ColNames>xid</ColNames>
+      <RefSchemaName>student_sys</RefSchemaName>
+      <RefTableName>class</RefTableName>
+      <RefColNames>xid</RefColNames>
+    </foreign-key>
+    <column id="84" parent="22" name="tid">
       <Position>1</Position>
       <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="21" name="tname">
+    <column id="85" parent="22" name="tname">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="21" name="syear">
+    <column id="86" parent="22" name="xid">
       <Position>3</Position>
-      <DataType>int(11)|0</DataType>
+      <Comment>班级id</Comment>
+      <DataType>int(8) unsigned zerofill|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="81" parent="21" name="sclass">
+    <column id="87" parent="22" name="ttele">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="82" parent="21" name="ttele">
+    <column id="88" parent="22" name="tpasswd">
       <Position>5</Position>
-      <DataType>varchar(50)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="83" parent="21" name="tpasswd">
-      <Position>6</Position>
       <DataType>varchar(200)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f&apos;</DefaultExpression>
     </column>
-    <index id="84" parent="21" name="syear">
-      <ColNames>syear
-sclass</ColNames>
-      <Unique>1</Unique>
+    <index id="89" parent="22" name="xid">
+      <ColNames>xid</ColNames>
     </index>
-    <key id="85" parent="21" name="PRIMARY">
+    <key id="90" parent="22" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="86" parent="21" name="syear">
-      <ColNames>syear
-sclass</ColNames>
-      <UnderlyingIndexName>syear</UnderlyingIndexName>
-    </key>
+    <foreign-key id="91" parent="22" name="teacher_ibfk_1">
+      <ColNames>xid</ColNames>
+      <RefSchemaName>student_sys</RefSchemaName>
+      <RefTableName>class</RefTableName>
+      <RefColNames>xid</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

@@ -10,6 +10,7 @@ import org.studentSys.enums.SmajorEnums;
 import org.studentSys.enums.SpeoEnums;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by HuiJa on 2018/4/26.
@@ -25,8 +26,9 @@ public class StudentDaoTest {
 
     @Test
     public void insertStudent() throws Exception {
+        //因为我个人在sql里加入了ignore,所以即使同样主键也不会报错,但是并不会执行
         //如果我int类型开头写0默认为8进制,那么如果有8会报错,
-        Student student = new Student(8148888, "王大锤", SexEnums.男, SmajorEnums.计科,2014,"2班","梅二A318","17501520888","江苏南京", SpeoEnums.汉,"江苏无锡","15061880888");
+        Student student = new Student(8148888, "王大锤", SexEnums.男, SmajorEnums.计科, 1, "梅二A318", "17501520888", "江苏南京", SpeoEnums.汉, "江苏无锡", "15061880888");
         studentDao.insertStudent(student);
     }
 
@@ -38,9 +40,24 @@ public class StudentDaoTest {
 
     @Test
     public void queryStudent() throws Exception {
-        int sid=8148888;
-        Student student=studentDao.queryStudent(sid);
+        int sid = 8148888;
+        Student student = studentDao.queryStudent(sid);
         System.out.println(student.toString());
+    }
+
+    @Test
+    public void changeSresult() throws Exception {
+        studentDao.changeSresult(8148888, "工作(南京)");
+        studentDao.changeSresult(8147777, "保研(华中科技大学)");
+        studentDao.changeSresult(8146666, "考公(北京)");
+    }
+
+    @Test
+    public void queryByLike() throws Exception {
+        List<Student> students = studentDao.queryByLike("考公");
+        for (Student student : students) {
+            System.out.println(student);
+        }
     }
 
 }

@@ -6,9 +6,9 @@
     <!--1.插入学生信息(insert),主键重复也不报错(不插入).这里不能一个对象直接插入吗?-->
     <insert id="insertStudent" parameterType="Student">
         INSERT IGNORE INTO student
-        (sid, sname, ssex, smajor, syear, sclass, sdorm, stele, spoo, speo, addr, telopm)
+        (sid, sname, ssex, smajor,xid, sdorm, stele, spoo, speo, addr, telopm)
         VALUES
-            (#{sid}, #{sname}, #{ssex}, #{smajor}, #{syear}, #{sclass}, #{sdorm}, #{stele}, #{spoo}, #{speo}, #{addr},
+            (#{sid}, #{sname}, #{ssex}, #{smajor}, #{xid}, #{sdorm}, #{stele}, #{spoo}, #{speo}, #{addr},
              #{telopm})
     </insert>
     <!--2.根据学号查询密码-->
@@ -22,5 +22,17 @@
         SELECT *
         FROM student
         WHERE sid = #{sid}
+    </select>
+    <!--4.修改最终去向-->
+    <update id="changeSresult">
+        UPDATE student
+        SET sresult = #{sresult}
+        WHERE sid = #{sid}
+    </update>
+    <!--5.模糊查询-->
+    <select id="queryByLike" parameterType="String" resultType="Student">
+        SELECT *
+        FROM student
+        WHERE sresult LIKE '%${_parameter}%'
     </select>
 </mapper>

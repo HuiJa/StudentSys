@@ -9,6 +9,16 @@
 -- 1.创建数据库student_sys
 CREATE DATABASE student_sys;
 USE student_sys;
+-- 8.创建班级表
+CREATE TABLE classes (
+  xid   INT(8) ZEROFILL NOT NULL PRIMARY KEY,
+  xyear VARCHAR(50)     NOT NULL,
+  xnum  INT             NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT '课程表';
+
 -- 2.创建学生基础信息表(主键为学号)
 -- 默认密码为SHA-256加密的now888
 CREATE TABLE student (
@@ -22,10 +32,8 @@ CREATE TABLE student (
   COMMENT '密码',
   smajor  ENUM ('计科', '信科', '信安', '网络') NOT NULL
   COMMENT '专业',
-  syear   INT                           NOT NULL
-  COMMENT '入学年纪',
-  sclass  VARCHAR(50)                   NOT NULL
-  COMMENT '班级',
+  xid     INT(8) ZEROFILL               NOT NULL
+  COMMENT '班级id',
   sdorm   VARCHAR(100)                  NOT NULL
   COMMENT '宿舍号',
   stele   VARCHAR(50)                   NOT NULL
@@ -39,7 +47,8 @@ CREATE TABLE student (
   telopm  VARCHAR(50)                   NOT NULL
   COMMENT '父母电话',
   sresult VARCHAR(50)                   NOT NULL DEFAULT '在读'
-  COMMENT '最终去向'
+  COMMENT '最终去向',
+  FOREIGN KEY (xid) REFERENCES classes (xid)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8
@@ -102,11 +111,11 @@ CREATE TABLE grade (
 CREATE TABLE teacher (
   tid     INT(8) ZEROFILL NOT NULL PRIMARY KEY,
   tname   VARCHAR(50)     NOT NULL,
-  syear   INT             NOT NULL,
-  sclass  VARCHAR(50)     NOT NULL,
+  xid     INT(8) ZEROFILL NOT NULL
+  COMMENT '班级id',
   ttele   VARCHAR(50)     NOT NULL,
   tpasswd VARCHAR(200)    NOT NULL DEFAULT '163b7c5dcb682d12ebf7cac8b57f2c96dc49ebb2afe207956ea35403514fe07f',
-  UNIQUE KEY (syear, sclass)
+  FOREIGN KEY (xid) REFERENCES classes (xid)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8
@@ -144,11 +153,13 @@ CREATE TABLE extra (
   COMMENT '课外发展记录 表';
 
 -- 数据模拟(3个学生,1个老师,16门课程)
+INSERT INTO classes (xid, xyear, xnum) VALUES (1, '2014', 2);
 -- 插入学生信息,采用默认密码
-INSERT INTO student (sid, sname, ssex, smajor, syear, sclass, sdorm, stele, spoo, speo, addr, telopm)
-VALUES (8148888, '庄某人', '男', '计科', 2014, '2班', '梅2A318', '17501520888', '江苏南京', '汉', '江苏无锡', '15061880888'),
-  (8147777, '柴某人', '男', '网络', 2014, '2班', '梅2A318', '17501520777', '湖北武汉', '汉', '江苏徐州', '15061880777'),
-  (8146666, '胡某人', '女', '信科', 2014, '2班', '梅2A318', '17501520666', '北京', '汉', '陕西西安', '15061880666');
+INSERT INTO student (sid, sname, ssex, smajor, xid, sdorm, stele, spoo, speo, addr, telopm)
+VALUES (8148888, '庄某人', '男', '计科', 1, '梅2A318', '17501520888', '江苏南京', '汉', '江苏无锡', '15061880888'),
+  (8147777, '柴某人', '男', '网络', 1, '梅2A318', '17501520777', '湖北武汉', '汉', '江苏徐州', '15061880777'),
+  (8146666, '胡某人', '女', '信科', 1, '梅2A318', '17501520666', '北京', '汉', '陕西西安', '15061880666');
+
 -- 插入体侧信息
 INSERT INTO fitness (sid, fyear, fheig, fweig, frun, fjump, fwalk, fup, fahead)
 VALUES (8148888, 1, 175.0, 68.0, 7.2, 210, 3.30, 5, 7.7),
@@ -208,8 +219,8 @@ VALUES (2014111, 8148888, 89, '2014-05-01'), (2014112, 8148888, 88, '2014-05-01'
   (2017111, 8146666, 77, '2017-05-01'), (2017112, 8146666, 74, '2017-05-01'), (2017113, 8146666, 72, '2017-05-01'),
   (2017114, 8146666, 71, '2017-05-01');
 -- 插入教师信息
-INSERT INTO teacher (tid, tname, syear, sclass, ttele)
-VALUES (8149999, "王大锤", 2014, '2班', "15605213888");
+INSERT INTO teacher (tid, tname, xid, ttele)
+VALUES (8149999, '王大锤', 1, '15605213888');
 -- 插入评价
 INSERT INTO review (sid, rtype, rcont, rdate)
 VALUES (8148888, '教师', '该同学动手能力强', '2018-05-01'),
