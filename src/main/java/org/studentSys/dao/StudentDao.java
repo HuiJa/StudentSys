@@ -26,6 +26,7 @@ public interface StudentDao {
 
     /**
      * 3.根据学号获取学生对象
+     *
      * @param sid
      * @return
      */
@@ -33,15 +34,24 @@ public interface StudentDao {
 
     /**
      * 4.修改学生去向
+     *
      * @param sid
      * @param sresult
      */
-    void changeSresult(@Param("sid") int sid,@Param("sresult") String sresult);
+    void changeSresult(@Param("sid") int sid, @Param("sresult") String sresult);
 
     /**
      * 5.模糊查询
+     *
      * @param likeString
      * @return
      */
     List<Student> queryByLike(String likeString);
+
+    /**
+     * 6.修改密码
+     *
+     * @param spasswd
+     */
+    void changePasswd(@Param("sid") int sid, @Param("spasswd") String spasswd);
 }

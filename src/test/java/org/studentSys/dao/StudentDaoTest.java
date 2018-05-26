@@ -20,6 +20,7 @@ import java.util.List;
 @ContextConfiguration({"classpath:spring-config/spring-dao.xml"})
 public class StudentDaoTest {
 
+
     //这边注入一直显示错误,但其实没有错
     @Resource
     private StudentDao studentDao;
@@ -59,5 +60,9 @@ public class StudentDaoTest {
             System.out.println(student);
         }
     }
-
+    @Test
+    public void changePasswd() throws Exception {
+        //123456
+        studentDao.changePasswd(8148888,"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
+    }
 }

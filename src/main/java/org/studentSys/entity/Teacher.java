@@ -22,12 +22,44 @@ public class Teacher {
         this.ttele = ttele;
     }
 
+    public void setTid(int tid) {
+        this.tid = tid;
+    }
+
     public String getTname() {
         return tname;
     }
 
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+
+    public int getXid() {
+        return xid;
+    }
+
+    public void setXid(int xid) {
+        this.xid = xid;
+    }
+
+    public String getTtele() {
+        return ttele;
+    }
+
+    public void setTtele(String ttele) {
+        this.ttele = ttele;
+    }
+
+    public String getTpasswd() {
+        return tpasswd;
+    }
+
     public void setTpasswd(String tpasswd) {
-        this.tpasswd = EncryptionUtil.StrEncoder(tpasswd, "SHA-256");
+        this.tpasswd = tpasswd;
+    }
+
+    public int getTid() {
+        return tid;
     }
 
     /**

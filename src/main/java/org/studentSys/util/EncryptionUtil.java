@@ -17,7 +17,7 @@ public class EncryptionUtil {
      */
     public static String StrEncoder(String str, String method) {
         String newStr = "";
-        //生辰一个加密计算摘要
+        //生成一个加密计算摘要
         try {
             MessageDigest md = MessageDigest.getInstance(method);
             md.update(str.getBytes());

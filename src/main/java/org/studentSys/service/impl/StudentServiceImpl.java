@@ -25,15 +25,33 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 1.学生登录
+     *
      * @param sid
      * @param spasswd
      * @return
      */
     @Override
     public int studentLogin(int sid, String spasswd) {
-        if (EncryptionUtil.StrEncoder(spasswd,"SHA-256").equals(studentDao.queryPasswd(sid))) {
+        if (EncryptionUtil.StrEncoder(spasswd, "SHA-256").equals(studentDao.queryPasswd(sid))) {
             return 0;
         }
         return -1;
+    }
+
+    /**
+     * 2.密码修改
+     * @param sid
+     * @param spasswd
+     * @return
+     */
+    @Override
+    @Transactional
+    public int studentPasswd(int sid, String spasswd) {
+        String oldPasswd = studentDao.queryPasswd(sid);
+        String newPasswd = EncryptionUtil.StrEncoder(spasswd, "SHA-256");
+        studentDao.changePasswd(sid, newPasswd);
+        if (oldPasswd.equals(studentDao.queryPasswd(sid)) == false) {
+            return 0;//改密成功
+        } else return 1;
     }
 }

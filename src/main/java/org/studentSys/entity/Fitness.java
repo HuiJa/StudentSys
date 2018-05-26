@@ -29,6 +29,78 @@ public class Fitness {
         this.fahead = fahead;
     }
 
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public int getFyear() {
+        return fyear;
+    }
+
+    public void setFyear(int fyear) {
+        this.fyear = fyear;
+    }
+
+    public double getFheig() {
+        return fheig;
+    }
+
+    public void setFheig(double fheig) {
+        this.fheig = fheig;
+    }
+
+    public double getFweig() {
+        return fweig;
+    }
+
+    public void setFweig(double fweig) {
+        this.fweig = fweig;
+    }
+
+    public double getFrun() {
+        return frun;
+    }
+
+    public void setFrun(double frun) {
+        this.frun = frun;
+    }
+
+    public int getFjump() {
+        return fjump;
+    }
+
+    public void setFjump(int fjump) {
+        this.fjump = fjump;
+    }
+
+    public double getFwalk() {
+        return fwalk;
+    }
+
+    public void setFwalk(double fwalk) {
+        this.fwalk = fwalk;
+    }
+
+    public int getFup() {
+        return fup;
+    }
+
+    public void setFup(int fup) {
+        this.fup = fup;
+    }
+
+    public double getFahead() {
+        return fahead;
+    }
+
+    public void setFahead(double fahead) {
+        this.fahead = fahead;
+    }
+
     @Override
     public String toString() {
         return "Fitness{" +

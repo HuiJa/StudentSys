@@ -26,6 +26,46 @@ public class Extra {
         this.eetime = eetime;
     }
 
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public ExtraDevEnums getEtype() {
+        return etype;
+    }
+
+    public void setEtype(ExtraDevEnums etype) {
+        this.etype = etype;
+    }
+
+    public String getEname() {
+        return ename;
+    }
+
+    public void setEname(String ename) {
+        this.ename = ename;
+    }
+
+    public Date getEstime() {
+        return estime;
+    }
+
+    public void setEstime(Date estime) {
+        this.estime = estime;
+    }
+
+    public Date getEetime() {
+        return eetime;
+    }
+
+    public void setEetime(Date eetime) {
+        this.eetime = eetime;
+    }
+
     @Override
     public String toString() {
         return "Extra{" +

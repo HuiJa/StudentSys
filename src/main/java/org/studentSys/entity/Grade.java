@@ -25,6 +25,46 @@ public class Grade {
         this.gtime = gtime;
     }
 
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public int getGresult() {
+        return gresult;
+    }
+
+    public void setGresult(int gresult) {
+        this.gresult = gresult;
+    }
+
+    public Date getGtime() {
+        return gtime;
+    }
+
+    public void setGtime(Date gtime) {
+        this.gtime = gtime;
+    }
+
+    public Boolean getGreply() {
+        return greply;
+    }
+
+    public void setGreply(Boolean greply) {
+        this.greply = greply;
+    }
+
     @Override
     public String toString() {
         return "Grade{" +

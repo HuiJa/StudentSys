@@ -25,6 +25,38 @@ public class Review {
         this.rdate = rdate;
     }
 
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public EvaluatorEnums getRtype() {
+        return rtype;
+    }
+
+    public void setRtype(EvaluatorEnums rtype) {
+        this.rtype = rtype;
+    }
+
+    public String getRcont() {
+        return rcont;
+    }
+
+    public void setRcont(String rcont) {
+        this.rcont = rcont;
+    }
+
+    public Date getRdate() {
+        return rdate;
+    }
+
+    public void setRdate(Date rdate) {
+        this.rdate = rdate;
+    }
+
     @Override
     public String toString() {
         return "Review{" +

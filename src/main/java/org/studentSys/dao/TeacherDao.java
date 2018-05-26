@@ -1,5 +1,6 @@
 package org.studentSys.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.studentSys.entity.Teacher;
 
 /**
@@ -19,5 +20,10 @@ public interface TeacherDao {
      * @return
      */
     String queryPasswd(int tid);
-
+    /**
+     * 3.修改密码
+     *
+     * @param tpasswd
+     */
+    void changePasswd(@Param("tid") int tid, @Param("tpasswd") String tpasswd);
 }

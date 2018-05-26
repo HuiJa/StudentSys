@@ -43,12 +43,108 @@ public class Student {
         this.telopm = telopm;
     }
 
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
     public String getSname() {
         return sname;
     }
 
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    public SexEnums getSsex() {
+        return ssex;
+    }
+
+    public void setSsex(SexEnums ssex) {
+        this.ssex = ssex;
+    }
+
+    public String getSpasswd() {
+        return spasswd;
+    }
+
     public void setSpasswd(String spasswd) {
-        this.spasswd = EncryptionUtil.StrEncoder(spasswd,"SHA-256");
+        this.spasswd = spasswd;
+    }
+
+    public SmajorEnums getSmajor() {
+        return smajor;
+    }
+
+    public void setSmajor(SmajorEnums smajor) {
+        this.smajor = smajor;
+    }
+
+    public int getXid() {
+        return xid;
+    }
+
+    public void setXid(int xid) {
+        this.xid = xid;
+    }
+
+    public String getSdorm() {
+        return sdorm;
+    }
+
+    public void setSdorm(String sdorm) {
+        this.sdorm = sdorm;
+    }
+
+    public String getStele() {
+        return stele;
+    }
+
+    public void setStele(String stele) {
+        this.stele = stele;
+    }
+
+    public String getSpoo() {
+        return spoo;
+    }
+
+    public void setSpoo(String spoo) {
+        this.spoo = spoo;
+    }
+
+    public SpeoEnums getSpeo() {
+        return speo;
+    }
+
+    public void setSpeo(SpeoEnums speo) {
+        this.speo = speo;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public String getTelopm() {
+        return telopm;
+    }
+
+    public void setTelopm(String telopm) {
+        this.telopm = telopm;
+    }
+
+    public String getSresult() {
+        return sresult;
+    }
+
+    public void setSresult(String sresult) {
+        this.sresult = sresult;
+    }
+
+    public int getSid() {
+        return sid;
     }
 
     @Override

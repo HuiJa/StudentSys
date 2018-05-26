@@ -4,7 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.studentSys.dao.StudentDao;
+import org.studentSys.entity.Student;
 import org.studentSys.service.StudentService;
+
+import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * Created by HuiJa on 2018/5/17.
@@ -17,4 +21,39 @@ public class StudentController {
     @Autowired
     private StudentDao studentDao;
 
+    /**
+     * 1.学生登录显示，退出
+     *
+     * @return
+     */
+    @RequestMapping(value = "/index-show")
+    public String stuIndexShow(Map<String, Object> requestMap, HttpSession session) {
+        requestMap.put("student", (Student) session.getAttribute("student"));//主页显示用户信息用
+        String view = "/index/student_index";
+        return view;
+    }
+
+    @RequestMapping(value = "/exit")
+    public String stuExit(HttpSession session) {
+        session.removeAttribute("student");
+        return "/index/login";
+    }
+
+    /**
+     * 2.学生,班主任信息页
+     *
+     * @return
+     */
+    @RequestMapping(value = "/information")
+    public String stuInfo(HttpSession session,Map<String, Object> requestMap) {
+        requestMap.put("student", (Student) session.getAttribute("student"));
+        return "/student/student_info";
+    }
+
+    @RequestMapping(value = "/teacher-info")
+    public String teaInfo(HttpSession session,Map<String, Object> requestMap) {
+        Student student = (Student) session.getAttribute("student");
+        //TODO 根据学号查询老师信息
+        return "/teacher/teacher_info";
+    }
 }

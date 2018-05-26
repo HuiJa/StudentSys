@@ -21,11 +21,15 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/teacher/index-show">主页</a></li>
-                <li><a href="#about">个人信息</a></li>
-                <li><a href="#contact">学生信息</a></li>
+                <li><a href="${pageContext.request.contextPath}/teacher/information">个人信息</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li style="font-size: 25px;color: #888888">Hello,${requestScope.teacher.tname}</li>
+                <li>
+                    <a href="${pageContext.request.contextPath }/passwd">
+                        <button class="btn btn-xs btn-danger" type="button">改密</button>
+                    </a>
+                </li>
                 <li>
                     <a href="${pageContext.request.contextPath }/teacher/exit">
                         <button class="btn btn-xs btn-danger" type="button">exit</button>

@@ -16,6 +16,7 @@ import org.studentSys.util.EncryptionUtil;
 @ContextConfiguration({"classpath:spring-config/spring-dao.xml",
         "classpath:spring-config/spring-service.xml"})
 public class StudentServiceTest {
+
     //创建日志对象
     //private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -28,4 +29,8 @@ public class StudentServiceTest {
         System.out.println(studentService.studentLogin(8148888,"now888"));
     }
 
+    @Test
+    public void studentPasswd() throws Exception {
+        System.out.println(studentService.studentPasswd(8148888,"123456"));
+    }
 }

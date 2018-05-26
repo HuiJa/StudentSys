@@ -13,4 +13,10 @@
         FROM teacher
         WHERE tid = #{tid}
     </select>
+    <!--3.修改密码-->
+    <update id="changePasswd">
+        UPDATE teacher
+        SET tpasswd = #{tpasswd}
+        WHERE tid = #{tid}
+    </update>
 </mapper>

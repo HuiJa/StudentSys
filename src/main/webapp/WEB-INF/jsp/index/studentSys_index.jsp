@@ -45,14 +45,14 @@
                     汇集教师、家长和学生三方的评价，记录学生课程学习、业余活动、项目实践等方面的连续信息，
                     在此基础上分析研究大学生成长情况并提出阶段性建议。</p>
                 <p class="lead">
-                    <a href="https://huija.github.io" class="btn btn-lg btn-default">Welcome to my blogs</a>
+                    <a href="https://huija.github.io" target="_blank" class="btn btn-lg btn-default">Welcome to my blogs</a>
                 </p>
             </div>
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Repository of <a href="https://github.com/HuiJa/StudentSys">StudentSys</a>, by <a
-                            href="https://github.com/huija">@huija</a>.</p>
+                    <p>Repository of <a href="https://github.com/HuiJa/StudentSys" target="_blank">StudentSys</a>, by <a
+                            href="https://github.com/huija" target="_blank">@huija</a>.</p>
                 </div>
             </div>
 

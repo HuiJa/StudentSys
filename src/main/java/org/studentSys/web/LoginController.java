@@ -12,6 +12,7 @@ import org.studentSys.entity.Student;
 import org.studentSys.entity.Teacher;
 import org.studentSys.service.StudentService;
 import org.studentSys.service.TeacherService;
+import org.studentSys.util.EncryptionUtil;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -67,10 +68,10 @@ public class LoginController {
      * @return 成功则进入主页
      */
     @RequestMapping(value = "/user/login-exection")
-    public String studentLoginExcution(@RequestParam("id") int id,
-                                       @RequestParam("passwd") String passwd,
-                                       @RequestParam("kind") String kind,
-                                       HttpSession session, Map<String, Object> requestMap) {
+    public String LoginExcution(@RequestParam("id") int id,
+                                @RequestParam("passwd") String passwd,
+                                @RequestParam("kind") String kind,
+                                HttpSession session, Map<String, Object> requestMap) {
         String view = "/index/login";//显示登录页
         int result = -1;//默认登录失败
         if ("stu".equals(kind)) {//学生登录
@@ -79,7 +80,7 @@ public class LoginController {
                 //登录成功,记录登录信息
                 Student student = studentDao.queryStudent(id);
                 session.setAttribute("student", student);
-                requestMap.put("student", student);
+                //requestMap.put("student", student);
                 view = "redirect:/student/index-show";//重定向是requestMapping,其余都是返回jsp
             } else {
                 requestMap.put("LoginError", "1");
@@ -89,7 +90,7 @@ public class LoginController {
             if (result == 0) {
                 Teacher teacher = teacherDao.queryTeacher(id);
                 session.setAttribute("teacher", teacher);
-                requestMap.put("teacher", teacher);
+                //requestMap.put("teacher", teacher);
                 view = "redirect:/teacher/index-show";
             } else {
                 requestMap.put("LoginError", "1");
@@ -99,39 +100,43 @@ public class LoginController {
     }
 
     /**
-     * 3.退出登录
-     *
-     * @param session
-     * @return 登录页面
-     */
-    @RequestMapping(value = "/student/exit")
-    public String stuExit(HttpSession session) {
-        session.removeAttribute("student");
-        return "/index/login";
-    }
-
-    @RequestMapping(value = "/teacher/exit")
-    public String teaExit(HttpSession session) {
-        session.removeAttribute("teacher");
-        return "/index/login";
-    }
-
-    /**
-     * 4.学生登录成功,显示主页
+     * 3.修改密码按钮
      *
      * @return
      */
-    @RequestMapping(value = "/student/index-show")
-    public String stuIndexShow(Map<String, Object> requestMap, HttpSession session) {
-        requestMap.put("student", (Student) session.getAttribute("student"));//主页显示用户信息用
-        String view = "/index/student_index";
+    @RequestMapping(value = "/passwd")
+    public String passwd() {
+        return "/index/passwd";//index/login.jsp,这个根据前置后置设定来查找
+    }
+
+    @RequestMapping(value = "/user/passd-execution")
+    public String LoginExcution(@RequestParam("passwd1") String passwd1,
+                                @RequestParam("passwd2") String passwd2,
+                                HttpSession session, Map<String, Object> requestMap) {
+        String view = "/index/passwd";//显示修改页
+        Student student = (Student) session.getAttribute("student");
+        if (student != null) {//学生登录
+            int sid = student.getSid();
+            if (passwd1.equals(passwd2)) {
+                studentService.studentPasswd(sid, passwd1);
+                view = "redirect:/login";
+            } else {
+                requestMap.put("PasswdError", "1");
+            }
+        } else {
+            Teacher teacher = (Teacher) session.getAttribute("teacher");
+            if (teacher != null) {
+                int tid = teacher.getTid();
+                if (passwd1.equals(passwd2)) {
+                    teacherService.teacherPasswd(tid, passwd1);
+                    view = "redirect:/login";
+                } else {
+                    requestMap.put("PasswdError", "1");
+                }
+            }
+        }
         return view;
     }
 
-    @RequestMapping(value = "/teacher/index-show")
-    public String teaIndexShow(Map<String, Object> requestMap, HttpSession session) {
-        requestMap.put("teacher", (Teacher) session.getAttribute("teacher"));//主页显示用户信息用
-        String view = "/index/teacher_index";
-        return view;
-    }
+
 }

@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
     <div class="list-group">
-        <a href="#" class="list-group-item">学生列表</a>
-        <a href="#" class="list-group-item">学生评价</a>
+        <a href="${pageContext.request.contextPath}/teacher/stu-list" class="list-group-item">学生列表</a>
+        <a href="${pageContext.request.contextPath}/teacher/own" class="list-group-item">学生评价</a>
     </div>
 </div><!--/.sidebar-offcanvas-->

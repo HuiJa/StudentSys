@@ -17,6 +17,30 @@ public class Course {
         this.cyear = cyear;
     }
 
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    public int getCyear() {
+        return cyear;
+    }
+
+    public void setCyear(int cyear) {
+        this.cyear = cyear;
+    }
+
     @Override
     public String toString() {
         return "Course{" +

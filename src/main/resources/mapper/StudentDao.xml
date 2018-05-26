@@ -35,4 +35,10 @@
         FROM student
         WHERE sresult LIKE '%${_parameter}%'
     </select>
+    <!--6.修改密码-->
+    <update id="changePasswd">
+        UPDATE student
+        SET spasswd = #{spasswd}
+        WHERE sid = #{sid}
+    </update>
 </mapper>

@@ -18,6 +18,30 @@ public class Classes {
         this.xnum = xnum;
     }
 
+    public int getXid() {
+        return xid;
+    }
+
+    public void setXid(int xid) {
+        this.xid = xid;
+    }
+
+    public String getXyear() {
+        return xyear;
+    }
+
+    public void setXyear(String xyear) {
+        this.xyear = xyear;
+    }
+
+    public int getXnum() {
+        return xnum;
+    }
+
+    public void setXnum(int xnum) {
+        this.xnum = xnum;
+    }
+
     @Override
     public String toString() {
         return "Class{" +

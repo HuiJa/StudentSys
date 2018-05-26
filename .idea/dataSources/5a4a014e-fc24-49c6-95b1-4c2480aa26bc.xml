@@ -18,7 +18,7 @@
     <schema id="12" parent="1" name="ssh_employee"/>
     <schema id="13" parent="1" name="sys"/>
     <schema id="14" parent="1" name="test"/>
-    <table id="15" parent="2" name="class">
+    <table id="15" parent="2" name="classes">
       <Comment>课程表</Comment>
     </table>
     <table id="16" parent="2" name="course">
@@ -371,7 +371,7 @@ sid</ColNames>
     <foreign-key id="83" parent="21" name="student_ibfk_1">
       <ColNames>xid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
-      <RefTableName>class</RefTableName>
+      <RefTableName>classes</RefTableName>
       <RefColNames>xid</RefColNames>
     </foreign-key>
     <column id="84" parent="22" name="tid">
@@ -412,7 +412,7 @@ sid</ColNames>
     <foreign-key id="91" parent="22" name="teacher_ibfk_1">
       <ColNames>xid</ColNames>
       <RefSchemaName>student_sys</RefSchemaName>
-      <RefTableName>class</RefTableName>
+      <RefTableName>classes</RefTableName>
       <RefColNames>xid</RefColNames>
     </foreign-key>
   </database-model>
