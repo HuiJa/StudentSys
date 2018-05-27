@@ -4,14 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
 import org.studentSys.dao.TeacherDao;
+import org.studentSys.entity.Review;
 import org.studentSys.entity.Student;
 import org.studentSys.entity.Teacher;
+import org.studentSys.enums.EvaluatorEnums;
 import org.studentSys.service.TeacherService;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -24,6 +28,10 @@ public class TeacherController {
     private TeacherService teacherService;
     @Autowired
     private TeacherDao teacherDao;
+    @Autowired
+    private StudentDao studentDao;
+    @Autowired
+    private ReviewDao reviewDao;
 
 
     /**
@@ -70,16 +78,26 @@ public class TeacherController {
         return "/teacher/stu_list";
     }
 
-    @RequestMapping(value = "/own")
-    public String own(HttpSession session, Map<String, Object> requestMap) {
-        return "/teacher/own";
-    }
-
     /**
      *4.评价
      */
     @RequestMapping(value = "/comment")
-    public String studentReview(@RequestParam("review") String comment, HttpSession session) {
-        return null;
+    public String studentReview(@RequestParam("comment") String comment, HttpSession session) {
+        Student student=(Student) session.getAttribute("aim_stu");
+        if ("".equals(comment) == false) {
+            Review review = new Review(student.getSid(), EvaluatorEnums.教师, comment, new Date());
+            reviewDao.insertReview(review);//这里需要空值判断
+        }
+        return "redirect:/teacher/dataShow?sid="+student.getSid();
+    }
+
+    /**
+     *5.展示学生信息
+     */
+    @RequestMapping(value = "/dataShow")
+    public String grade(@RequestParam("sid") int sid, HttpSession session) {
+        //保持查询目标信息
+        session.setAttribute("aim_stu",studentDao.queryStudent(sid));
+        return "/teacher/stu_data";
     }
 }

@@ -62,8 +62,8 @@ public class StudentController {
     @RequestMapping(value = "/teacher-info")
     public String teaInfo(HttpSession session, Map<String, Object> requestMap) {
         Student student = (Student) session.getAttribute("student");
-        Teacher teacher=studentDao.queryTeacher(student.getXid());
-        requestMap.put("teacherMessage",teacher);
+        Teacher teacher = studentDao.queryTeacher(student.getXid());
+        requestMap.put("teacherMessage", teacher);
         return "/student/teacher_info";
     }
 
@@ -108,14 +108,21 @@ public class StudentController {
     @RequestMapping(value = "/addReview")
     public String addReview(@RequestParam("comment") String comment, HttpSession session) {
         Student student = (Student) session.getAttribute("student");
-        Review review = new Review(student.getSid(), EvaluatorEnums.自己, comment, new Date());
-        reviewDao.insertReview(review);
+        if ("".equals(comment) == false) {
+            Review review = new Review(student.getSid(), EvaluatorEnums.自己, comment, new Date());
+            reviewDao.insertReview(review);
+        }
         return "redirect:/student/own";
     }
 
     @RequestMapping(value = "/comment")
     public String studentReview(@RequestParam("comment") String comment, HttpSession session) {
-        return null;
+        Student student=(Student) session.getAttribute("aim_stu");
+        if ("".equals(comment) == false) {
+            Review review = new Review(student.getSid(), EvaluatorEnums.同学, comment, new Date());
+            reviewDao.insertReview(review);
+        }
+        return "redirect:/student/dataShow?sid="+student.getSid();
     }
 
     /**
@@ -126,6 +133,14 @@ public class StudentController {
         ArrayList<Student> studentList = (ArrayList) studentDao.queryByLike(aim);
         requestMap.put("students", studentList);
         return "/student/stu_list";
+        //返回student的stu_list主要是因为学生老师的导航栏侧边栏不一样,不然可以直接合为一个
+    }
+
+    @RequestMapping(value = "/dataShow")
+    public String grade(@RequestParam("sid") int sid, HttpSession session) {
+        //保持查询目标信息
+        session.setAttribute("aim_stu",studentDao.queryStudent(sid));
+        return "/student/stu_data";
         //返回student的stu_list主要是因为学生老师的导航栏侧边栏不一样,不然可以直接合为一个
     }
 

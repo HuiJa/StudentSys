@@ -43,7 +43,11 @@
                                 <td>${student.sname}</td>
                                 <td>${student.smajor}</td>
                                 <td>${student.stele}</td>
-                                <td>查看详细信息(待做)</td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath }/teacher/dataShow?sid=${student.sid}">
+                                        <button class="btn btn-xs btn-danger" type="button">查看基本信息</button>
+                                    </a>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

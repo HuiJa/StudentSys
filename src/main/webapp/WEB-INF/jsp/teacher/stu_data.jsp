@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: HuiJa
-  Date: 2018/5/26
+  Date: 2018/5/24
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -9,11 +9,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>课程成绩页</title>
+    <title>学生信息页</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
-<%@include file="../common/student_navbar.jsp" %>
+<%@include file="../common/teacher_navbar.jsp" %>
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
 
@@ -25,11 +25,17 @@
             <!--主体内容-->
             <div id="chart1"></div>
             <div id="chart2"></div>
-            <div id="chart3"></div>
-            <div id="chart4"></div>
+            <div class="col-md-6">
+                <form action="${pageContext.request.contextPath }/teacher/comment" method="post">
+                    <div class="input-group">
+                        <input type="text" name="comment" class="form-control input-lg" placeholder="给他一个评价">
+                        <button type="submit" class="btn btn-success btn-block">提交</button>
+                    </div>
+                </form>
+            </div><!--add comment-->
         </div>
 
-        <%@include file="../common/student_sidebar.jsp" %>
+        <%@include file="../common/teacher_sidebar.jsp" %>
     </div>
 
     <%@include file="../common/foot.jsp" %>
@@ -38,21 +44,26 @@
 <%@include file="../common/end_js.jsp" %>
 <script>
     const data1 = {
-        labels: ["大学英语", "高等数学", "大学物理", "C语言程序设计"],
+        labels: ["大一", "大二", "大三", "大四"],
         datasets: [
             {
-                name: "成绩/分", chartType: "bar",
-                values: [73, 74, 75, 75]
+                name: "身高/cm", chartType: "line",
+                values: [173, 174, 175, 175]
+            },
+            {
+                name: "跳远/cm", chartType: "line",
+                values: [210, 205, 190, 200]
             }
         ]
     }
+
     const chart1 = new frappe.Chart("#chart1", {  // or a DOM element,
         // new Chart() in case of ES6 module with above usage
-        title: "大一选课程及成绩",
+        title: "身高,跳远/cm",
         data: data1,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
+        type: 'axis-mixed', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
         height: 300,
-        colors: ['#fd28d4']
+        colors: ['#7cd6fd', '#743ee2']
     })
     const data2 = {
         labels: ["算法", "微机原理", "离散数学", "数据结构"],
@@ -70,42 +81,6 @@
         type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
         height: 300,
         colors: ['#51fd4d']
-    })
-
-    const data3 = {
-        labels: ["计算机网络", "数据库原理", "编程语言设计", "软件工程"],
-        datasets: [
-            {
-                name: "成绩/分", chartType: "bar",
-                values: [66, 74, 88, 90]
-            }
-        ]
-    }
-    const chart3 = new frappe.Chart("#chart3", {  // or a DOM element,
-        // new Chart() in case of ES6 module with above usage
-        title: "大三选课程及成绩",
-        data: data3,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
-        colors: ['#556bfd']
-    })
-
-    const data4 = {
-        labels: ["Web程序设计", "Linux操作系统", "安卓程序开发", "信息安全技术"],
-        datasets: [
-            {
-                name: "成绩/分", chartType: "bar",
-                values: [55, 74, 66, 90]
-            }
-        ]
-    }
-    const chart4 = new frappe.Chart("#chart4", {  // or a DOM element,
-        // new Chart() in case of ES6 module with above usage
-        title: "大四选课程及成绩",
-        data: data4,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
-        colors: ['#fdca36']
     })
 </script>
 </body>

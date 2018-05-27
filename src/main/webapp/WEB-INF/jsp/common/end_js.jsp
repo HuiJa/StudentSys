@@ -13,3 +13,4 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/offcanvas.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/frappe-charts.min.iife.js"></script>

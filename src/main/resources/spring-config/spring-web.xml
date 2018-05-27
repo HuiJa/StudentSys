@@ -30,6 +30,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd     http://www.spri
         <mvc:interceptor>
             <mvc:mapping path="/student/*"/>
             <mvc:mapping path="/teacher/*"/>
+            <mvc:mapping path="/api/*"/>
             <mvc:mapping path="/Introduction"/>
             <mvc:mapping path="/passwd"/>
             <bean class="org.studentSys.interceptor.LoginInterceptor"/>

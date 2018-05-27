@@ -67,6 +67,11 @@ public class StudentServiceImpl implements StudentService {
 
     }
 
+    /**
+     * 3.查询评价表
+     * @param student
+     * @return
+     */
     @Override
     public List<Review> teacherReview(Student student) {
         return reviewDao.queryReviews(student.getSid(), EvaluatorEnums.教师);
