@@ -24,6 +24,7 @@ public class TeacherController {
 
     /**
      * 1.老师登录显示，推出
+     *
      * @param requestMap
      * @param session
      * @return
@@ -42,12 +43,28 @@ public class TeacherController {
     }
 
     /**
-     * 2.老师个人信息
+     * 2.导航栏
+     *
      * @return
      */
     @RequestMapping(value = "/information")
-    public String teaInfo(HttpSession session,Map<String, Object> requestMap) {
+    public String teaInfo(HttpSession session, Map<String, Object> requestMap) {
         requestMap.put("teacher", (Teacher) session.getAttribute("teacher"));
         return "/teacher/teacher_info";
+    }
+
+    /**
+     * 3.侧边栏
+     *
+     * @return
+     */
+    @RequestMapping(value = "/stu-list")
+    public String stuList(HttpSession session, Map<String, Object> requestMap) {
+        return "/teacher/stu_list";
+    }
+
+    @RequestMapping(value = "/own")
+    public String own(HttpSession session, Map<String, Object> requestMap) {
+        return "/teacher/own";
     }
 }

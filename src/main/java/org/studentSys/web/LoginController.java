@@ -73,7 +73,7 @@ public class LoginController {
                                 @RequestParam("kind") String kind,
                                 HttpSession session, Map<String, Object> requestMap) {
         String view = "/index/login";//显示登录页
-        int result = -1;//默认登录失败
+        int result = 1;//默认登录失败
         if ("stu".equals(kind)) {//学生登录
             result = studentService.studentLogin(id, passwd);
             if (result == 0) {
@@ -114,12 +114,18 @@ public class LoginController {
                                 @RequestParam("passwd2") String passwd2,
                                 HttpSession session, Map<String, Object> requestMap) {
         String view = "/index/passwd";//显示修改页
+        int result = 1;//默认修改失败
         Student student = (Student) session.getAttribute("student");
-        if (student != null) {//学生登录
+        if (student != null) {//学生修改
             int sid = student.getSid();
             if (passwd1.equals(passwd2)) {
-                studentService.studentPasswd(sid, passwd1);
-                view = "redirect:/login";
+                result = studentService.studentPasswd(sid, passwd1);
+                if (result == 0) {
+                    view = "redirect:/login";
+                    session.removeAttribute("student");
+                } else {
+                    requestMap.put("PasswdError", "1");
+                }
             } else {
                 requestMap.put("PasswdError", "1");
             }
@@ -128,8 +134,13 @@ public class LoginController {
             if (teacher != null) {
                 int tid = teacher.getTid();
                 if (passwd1.equals(passwd2)) {
-                    teacherService.teacherPasswd(tid, passwd1);
-                    view = "redirect:/login";
+                    result = teacherService.teacherPasswd(tid, passwd1);
+                    if (result == 0) {
+                        view = "redirect:/login";
+                        session.removeAttribute("teacher");
+                    } else {
+                        requestMap.put("PasswdError", "1");
+                    }
                 } else {
                     requestMap.put("PasswdError", "1");
                 }
@@ -137,6 +148,4 @@ public class LoginController {
         }
         return view;
     }
-
-
 }

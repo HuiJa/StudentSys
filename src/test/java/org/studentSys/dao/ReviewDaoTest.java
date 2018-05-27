@@ -32,7 +32,7 @@ public class ReviewDaoTest {
 
     @Test
     public void queryReviewsBySid() throws Exception {
-        List<Review> reviewList = reviewDao.queryReviewsBySid(8148888);
+        List<Review> reviewList = reviewDao.queryReviews(8148888,EvaluatorEnums.教师);
         for (Review review : reviewList) {
             System.out.println(review);
         }

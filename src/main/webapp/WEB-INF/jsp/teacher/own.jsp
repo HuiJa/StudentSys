@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: HuiJa
-  Date: 2018/5/24
+  Date: 2018/5/26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -9,11 +9,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>学生信息页</title>
+    <title>老师评价显示</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
-<%@include file="../common/student_navbar.jsp" %>
+<%@include file="../common/teacher_navbar.jsp" %>
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
 
@@ -25,7 +25,7 @@
             <!--主体内容-->
         </div>
 
-        <%@include file="../common/student_sidebar.jsp" %>
+        <%@include file="../common/teacher_sidebar.jsp" %>
     </div>
 
     <%@include file="../common/foot.jsp" %>

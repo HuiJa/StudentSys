@@ -1,5 +1,10 @@
 package org.studentSys.service;
 
+import org.studentSys.entity.Review;
+import org.studentSys.entity.Student;
+
+import java.util.List;
+
 /**
  * Created by HuiJa on 2018/4/26.
  */
@@ -21,4 +26,13 @@ public interface StudentService {
      * @return 0修改成功 -1修改失败
      */
     int studentPasswd(int sid,String spasswd);
+
+    /**
+     * 3.获取评价
+     * @param student
+     * @return
+     */
+    List<Review> teacherReview(Student student);
+    List<Review> studentReview(Student student);
+    List<Review> ownReview(Student student);
 }

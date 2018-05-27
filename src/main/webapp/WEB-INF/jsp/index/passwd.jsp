@@ -13,7 +13,7 @@
     <%@include file="../common/head_css.jsp" %>
 </head>
 
-<body class="bg-info">
+<body class="bg-danger">
 <div class="container"> 
     <form class="form-signin" name="form" action="/user/passd-execution" method="post">
         <div class="row" style="margin-top:30px;">
@@ -30,7 +30,7 @@
                         <input type="password" class="form-control" placeholder="密码确认" name="passwd2" required>
                     </div>
                     <c:if test="${requestScope.PasswdError == 1 }">
-                        <span style="color:#f44336;">两次密码不一致!请检查后重新输入</span>
+                        <span style="color:#f44336;">请确认你是否输入新的密码而且两次密码一致!</span>
                     </c:if>
                     <button type="submit" class="btn btn-success btn-block">
                         修改

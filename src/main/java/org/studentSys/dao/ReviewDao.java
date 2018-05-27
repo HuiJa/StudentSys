@@ -1,6 +1,8 @@
 package org.studentSys.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.studentSys.entity.Review;
+import org.studentSys.enums.EvaluatorEnums;
 
 import java.util.List;
 
@@ -15,9 +17,9 @@ public interface ReviewDao {
     void insertReview(Review review);
 
     /**
-     * 2.根据学号查询评价
+     * 2.根据学号,评价人查询评价
      * @param sid
      * @return
      */
-    List<Review> queryReviewsBySid(int sid);
+    List<Review> queryReviews(@Param("sid")int sid,@Param("rtype") EvaluatorEnums rtype);
 }

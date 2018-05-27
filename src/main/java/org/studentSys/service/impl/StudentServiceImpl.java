@@ -5,9 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
+import org.studentSys.entity.Review;
+import org.studentSys.entity.Student;
+import org.studentSys.enums.EvaluatorEnums;
 import org.studentSys.service.StudentService;
 import org.studentSys.util.EncryptionUtil;
+
+import java.util.List;
 
 /**
  * Created by HuiJa on 2018/4/26.
@@ -20,6 +26,8 @@ public class StudentServiceImpl implements StudentService {
     //注入dao依赖
     @Autowired
     private StudentDao studentDao;
+    @Autowired
+    private ReviewDao reviewDao;
 
     //如果需要事务可以使用@Transactional注解
 
@@ -40,6 +48,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 2.密码修改
+     *
      * @param sid
      * @param spasswd
      * @return
@@ -49,9 +58,27 @@ public class StudentServiceImpl implements StudentService {
     public int studentPasswd(int sid, String spasswd) {
         String oldPasswd = studentDao.queryPasswd(sid);
         String newPasswd = EncryptionUtil.StrEncoder(spasswd, "SHA-256");
-        studentDao.changePasswd(sid, newPasswd);
-        if (oldPasswd.equals(studentDao.queryPasswd(sid)) == false) {
-            return 0;//改密成功
+        if (oldPasswd.equals(newPasswd) == false) {
+            studentDao.changePasswd(sid, newPasswd);
+            if (oldPasswd.equals(studentDao.queryPasswd(sid)) == false) {
+                return 0;//改密成功
+            } else return 1;
         } else return 1;
+
+    }
+
+    @Override
+    public List<Review> teacherReview(Student student) {
+        return reviewDao.queryReviews(student.getSid(), EvaluatorEnums.教师);
+    }
+
+    @Override
+    public List<Review> studentReview(Student student) {
+        return reviewDao.queryReviews(student.getSid(), EvaluatorEnums.同学);
+    }
+
+    @Override
+    public List<Review> ownReview(Student student) {
+        return reviewDao.queryReviews(student.getSid(), EvaluatorEnums.自己);
     }
 }

@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: HuiJa
-  Date: 2018/5/24
+  Date: 2018/5/26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>学生信息页</title>
+    <title>课程成绩页</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>

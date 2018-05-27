@@ -6,9 +6,9 @@
         INSERT IGNORE INTO review (sid, rtype, rcont, rdate)
         VALUES (#{sid}, #{rtype}, #{rcont}, #{rdate})
     </insert>
-    <select id="queryReviewsBySid" parameterType="int" resultType="Review">
+    <select id="queryReviews" resultType="Review">
         SELECT *
         FROM review
-        WHERE sid = #{sid}
+        WHERE sid = #{sid} AND rtype = #{rtype}
     </select>
 </mapper>

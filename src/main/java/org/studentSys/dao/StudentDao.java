@@ -51,6 +51,7 @@ public interface StudentDao {
     /**
      * 6.修改密码
      *
+     * @param sid
      * @param spasswd
      */
     void changePasswd(@Param("sid") int sid, @Param("spasswd") String spasswd);
