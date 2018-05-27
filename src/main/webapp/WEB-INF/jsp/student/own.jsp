@@ -23,6 +23,54 @@
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
             </p>
             <!--主体内容-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>自我评价</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>评价时间</th>
+                            <th>评价内容</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="ownReview" items="${requestScope.ownReviews}">
+                            <tr>
+                                <td><fmt:formatDate value="${ownReview.rdate}" pattern="yyyy-MM-dd"/></td>
+                                <td>${ownReview.rcont}</td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath }/student/deleteReview?rid=${ownReview.rid}">
+                                        <button class="btn btn-xs btn-danger" type="button">删除</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--table3-->
+            <div class="col-md-6">
+                <form action="${pageContext.request.contextPath }/student/addReview" method="post">
+                    <div class="input-group">
+                        <input type="text" name="comment" class="form-control input-lg" placeholder="给自己一个评价">
+                        <button type="submit" class="btn btn-success btn-block">添加</button>
+                    </div>
+                </form>
+            </div><!--Add Comment-->
+            <div class="col-md-6">
+                <form action="${pageContext.request.contextPath }/student/search" method="post">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <input type="text" name="aim" class="form-control input-lg" placeholder="自己的大学目标">
+                            <button type="submit" class="btn btn-success btn-block">搜索</button>
+                        </div>
+                        </span>
+                    </div>
+                </form>
+            </div><!--Search-->
         </div>
 
         <%@include file="../common/student_sidebar.jsp" %>

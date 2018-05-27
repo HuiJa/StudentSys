@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>学生信息页</title>
+    <title>教师信息页</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
@@ -25,26 +25,20 @@
             <!--主体内容-->
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h2>个人信息</h2>
+                    <h2>班主任信息</h2>
                 </div>
                 <div class="panel-body">
                     <table class="table table-hover">
                         <thead>
                         <tr>
                             <th>姓名</th>
-                            <th>专业</th>
                             <th>电话</th>
-                            <th>宿舍</th>
-                            <th>最终去向</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>${sessionScope.student.sname}</td>
-                            <td>${sessionScope.student.smajor}</td>
-                            <td>${sessionScope.student.stele}</td>
-                            <td>${sessionScope.student.sdorm}</td>
-                            <td>${sessionScope.student.sresult}</td>
+                            <td>${requestScope.teacherMessage.tname}</td>
+                            <td>${requestScope.teacherMessage.ttele}</td>
                         </tr>
                         </tbody>
                     </table>

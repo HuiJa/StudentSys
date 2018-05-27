@@ -1,7 +1,10 @@
 package org.studentSys.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.studentSys.entity.Student;
 import org.studentSys.entity.Teacher;
+
+import java.util.List;
 
 /**
  * Created by HuiJa on 2018/5/7.
@@ -26,4 +29,11 @@ public interface TeacherDao {
      * @param tpasswd
      */
     void changePasswd(@Param("tid") int tid, @Param("tpasswd") String tpasswd);
+
+    /**
+     * 4.查询某班学生列表
+     * @param Xid
+     * @return
+     */
+    List<Student> queryByXid(int Xid);
 }

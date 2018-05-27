@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>评价显示</title>
+    <title>学生列表</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
@@ -25,50 +25,31 @@
             <!--主体内容-->
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h2>老师评价</h2>
+                    <h2>学生列表</h2>
                 </div>
                 <div class="panel-body">
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>评价时间</th>
-                            <th>评价内容</th>
+                            <th>姓名</th>
+                            <th>专业</th>
+                            <th>最终去向</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="teacherReview" items="${requestScope.teacherReviews}">
+                        <c:forEach var="student" items="${requestScope.students}">
                             <tr>
-                                <td><fmt:formatDate value="${teacherReview.rdate}" pattern="yyyy-MM-dd"/></td>
-                                <td>${teacherReview.rcont}</td>
+                                <td>${student.sname}</td>
+                                <td>${student.smajor}</td>
+                                <td>${student.sresult}</td>
+                                <td>查看详细信息(待做)</td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                 </div>
-            </div><!--table1-->
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <h2>同学评价</h2>
-                </div>
-                <div class="panel-body">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>评价时间</th>
-                            <th>评价内容</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="studentReview" items="${requestScope.studentReviews}">
-                            <tr>
-                                <td><fmt:formatDate value="${studentReview.rdate}" pattern="yyyy-MM-dd"/></td>
-                                <td>${studentReview.rcont}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-            </div><!--table2-->
+            </div><!--stu_list-->
         </div>
 
         <%@include file="../common/student_sidebar.jsp" %>
@@ -78,5 +59,6 @@
 </div>
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
+
 </body>
 </html>

@@ -11,4 +11,8 @@
         FROM review
         WHERE sid = #{sid} AND rtype = #{rtype}
     </select>
+    <delete id="deleteReview" parameterType="int">
+        DELETE FROM review
+        WHERE rid = #{rid}
+    </delete>
 </mapper>

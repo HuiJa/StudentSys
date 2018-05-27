@@ -11,6 +11,7 @@
         <a href="${pageContext.request.contextPath}/student/grade" class="list-group-item">课程成绩</a>
         <a href="${pageContext.request.contextPath}/student/fitness" class="list-group-item">体侧成绩</a>
         <a href="${pageContext.request.contextPath}/student/reviews" class="list-group-item">他人评价</a>
-        <a href="${pageContext.request.contextPath}/student/own" class="list-group-item">自我评价</a>
+        <a href="${pageContext.request.contextPath}/student/own" class="list-group-item">自我行动</a>
     </div>
-</div><!--/.sidebar-offcanvas-->
+</div>
+<!--/.sidebar-offcanvas-->

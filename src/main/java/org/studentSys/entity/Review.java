@@ -9,9 +9,9 @@ import java.util.Date;
  * Created by HuiJa on 2018/5/7.
  */
 public class Review {
+    private int rid;
     private int sid;
     private EvaluatorEnums rtype;
-    ;
     private String rcont;
     private Date rdate;
 
@@ -23,6 +23,14 @@ public class Review {
         this.rtype = rtype;
         this.rcont = rcont;
         this.rdate = rdate;
+    }
+
+    public int getRid() {
+        return rid;
+    }
+
+    public void setRid(int rid) {
+        this.rid = rid;
     }
 
     public int getSid() {

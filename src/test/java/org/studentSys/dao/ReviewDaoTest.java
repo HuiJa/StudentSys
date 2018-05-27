@@ -37,5 +37,9 @@ public class ReviewDaoTest {
             System.out.println(review);
         }
     }
+    @Test
+    public void deleteReview() throws Exception{
+        reviewDao.deleteReview(10);
+    }
 
 }

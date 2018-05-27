@@ -2,6 +2,7 @@ package org.studentSys.dao;
 
 import org.apache.ibatis.annotations.Param;
 import org.studentSys.entity.Student;
+import org.studentSys.entity.Teacher;
 
 import java.util.List;
 
@@ -55,4 +56,11 @@ public interface StudentDao {
      * @param spasswd
      */
     void changePasswd(@Param("sid") int sid, @Param("spasswd") String spasswd);
+
+    /**
+     * 7.查询教师
+     * @param xid
+     * @return
+     */
+    Teacher queryTeacher(int xid);
 }

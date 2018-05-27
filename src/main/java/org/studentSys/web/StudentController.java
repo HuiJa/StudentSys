@@ -3,11 +3,18 @@ package org.studentSys.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
+import org.studentSys.entity.Review;
 import org.studentSys.entity.Student;
+import org.studentSys.entity.Teacher;
+import org.studentSys.enums.EvaluatorEnums;
 import org.studentSys.service.StudentService;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -20,6 +27,8 @@ public class StudentController {
     private StudentService studentService;
     @Autowired
     private StudentDao studentDao;
+    @Autowired
+    private ReviewDao reviewDao;
 
     /**
      * 1.学生登录显示，退出
@@ -53,8 +62,9 @@ public class StudentController {
     @RequestMapping(value = "/teacher-info")
     public String teaInfo(HttpSession session, Map<String, Object> requestMap) {
         Student student = (Student) session.getAttribute("student");
-        //TODO 根据学号查询老师信息
-        return "/teacher/teacher_info";
+        Teacher teacher=studentDao.queryTeacher(student.getXid());
+        requestMap.put("teacherMessage",teacher);
+        return "/student/teacher_info";
     }
 
     /**
@@ -73,14 +83,50 @@ public class StudentController {
     @RequestMapping(value = "/reviews")
     public String reviews(HttpSession session, Map<String, Object> requestMap) {
         Student student = (Student) session.getAttribute("student");
-        requestMap.put("teacherReviews", studentService.teacherReview(student));
-        requestMap.put("studentReviews", studentService.studentReview(student));
-        requestMap.put("ownReviews", studentService.ownReview(student));
+        requestMap.put("teacherReviews", (ArrayList) studentService.teacherReview(student));
+        requestMap.put("studentReviews", (ArrayList) studentService.studentReview(student));
+        requestMap.put("ownReviews", (ArrayList) studentService.ownReview(student));
         return "/student/reviews";
     }
 
     @RequestMapping(value = "/own")
     public String own(HttpSession session, Map<String, Object> requestMap) {
+        Student student = (Student) session.getAttribute("student");
+        requestMap.put("ownReviews", (ArrayList) studentService.ownReview(student));
         return "/student/own";
     }
+
+    /**
+     * 4.删除添加评论
+     */
+    @RequestMapping(value = "/deleteReview")
+    public String removeReview(@RequestParam("rid") int rid) {
+        reviewDao.deleteReview(rid);
+        return "redirect:/student/own";
+    }
+
+    @RequestMapping(value = "/addReview")
+    public String addReview(@RequestParam("comment") String comment, HttpSession session) {
+        Student student = (Student) session.getAttribute("student");
+        Review review = new Review(student.getSid(), EvaluatorEnums.自己, comment, new Date());
+        reviewDao.insertReview(review);
+        return "redirect:/student/own";
+    }
+
+    @RequestMapping(value = "/comment")
+    public String studentReview(@RequestParam("comment") String comment, HttpSession session) {
+        return null;
+    }
+
+    /**
+     * 5.搜索目标
+     */
+    @RequestMapping(value = "/search")
+    public String grade(@RequestParam("aim") String aim, Map<String, Object> requestMap) {
+        ArrayList<Student> studentList = (ArrayList) studentDao.queryByLike(aim);
+        requestMap.put("students", studentList);
+        return "/student/stu_list";
+        //返回student的stu_list主要是因为学生老师的导航栏侧边栏不一样,不然可以直接合为一个
+    }
+
 }

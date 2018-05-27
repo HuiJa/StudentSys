@@ -22,4 +22,10 @@ public interface ReviewDao {
      * @return
      */
     List<Review> queryReviews(@Param("sid")int sid,@Param("rtype") EvaluatorEnums rtype);
+
+    /**
+     * 3.删除评论
+     * @param rid
+     */
+    void deleteReview(int rid);
 }

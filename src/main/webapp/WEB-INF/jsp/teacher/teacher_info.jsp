@@ -13,7 +13,7 @@
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
-<%@include file="../common/student_navbar.jsp" %>
+<%@include file="../common/teacher_navbar.jsp" %>
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
 
@@ -23,9 +23,30 @@
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
             </p>
             <!--主体内容-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>个人信息</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>电话</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>${sessionScope.teacher.tname}</td>
+                            <td>${sessionScope.teacher.ttele}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--table1-->
         </div>
 
-        <%@include file="../common/student_sidebar.jsp" %>
+        <%@include file="../common/teacher_sidebar.jsp" %>
     </div>
 
     <%@include file="../common/foot.jsp" %>

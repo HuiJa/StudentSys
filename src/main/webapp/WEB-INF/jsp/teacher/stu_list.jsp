@@ -23,6 +23,33 @@
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
             </p>
             <!--主体内容-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>学生列表</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>专业</th>
+                            <th>联系方式</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="student" items="${requestScope.students}">
+                            <tr>
+                                <td>${student.sname}</td>
+                                <td>${student.smajor}</td>
+                                <td>${student.stele}</td>
+                                <td>查看详细信息(待做)</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--stu_list-->
         </div>
 
         <%@include file="../common/teacher_sidebar.jsp" %>

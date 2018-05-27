@@ -19,4 +19,10 @@
         SET tpasswd = #{tpasswd}
         WHERE tid = #{tid}
     </update>
+    <!--4.查询某班学生-->
+    <select id="queryByXid" parameterType="int" resultType="Student">
+        SELECT *
+        FROM student
+        WHERE xid = #{xid}
+    </select>
 </mapper>

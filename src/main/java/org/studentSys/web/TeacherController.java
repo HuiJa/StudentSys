@@ -3,11 +3,15 @@ package org.studentSys.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.studentSys.dao.StudentDao;
 import org.studentSys.dao.TeacherDao;
+import org.studentSys.entity.Student;
 import org.studentSys.entity.Teacher;
 import org.studentSys.service.TeacherService;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -60,11 +64,22 @@ public class TeacherController {
      */
     @RequestMapping(value = "/stu-list")
     public String stuList(HttpSession session, Map<String, Object> requestMap) {
+        Teacher teacher=(Teacher)session.getAttribute("teacher");
+        ArrayList<Student> studentList = (ArrayList) teacherDao.queryByXid(teacher.getXid());
+        requestMap.put("students", studentList);
         return "/teacher/stu_list";
     }
 
     @RequestMapping(value = "/own")
     public String own(HttpSession session, Map<String, Object> requestMap) {
         return "/teacher/own";
+    }
+
+    /**
+     *4.评价
+     */
+    @RequestMapping(value = "/comment")
+    public String studentReview(@RequestParam("review") String comment, HttpSession session) {
+        return null;
     }
 }

@@ -6,10 +6,10 @@
     <!--1.插入学生信息(insert),主键重复也不报错(不插入).这里不能一个对象直接插入吗?-->
     <insert id="insertStudent" parameterType="Student">
         INSERT IGNORE INTO student
-        (sid, sname, ssex, smajor,xid, sdorm, stele, spoo, speo, addr, telopm)
+        (sid, sname, ssex, smajor, xid, sdorm, stele, spoo, speo, addr, telopm)
         VALUES
             (#{sid}, #{sname}, #{ssex}, #{smajor}, #{xid}, #{sdorm}, #{stele}, #{spoo}, #{speo}, #{addr},
-             #{telopm})
+                     #{telopm})
     </insert>
     <!--2.根据学号查询密码-->
     <select id="queryPasswd" parameterType="int" resultType="String">
@@ -41,4 +41,10 @@
         SET spasswd = #{spasswd}
         WHERE sid = #{sid}
     </update>
+    <!--7.查询班主任-->
+    <select id="queryTeacher" parameterType="int" resultType="Teacher">
+        SELECT *
+        FROM teacher
+        WHERE xid = #{xid}
+    </select>
 </mapper>

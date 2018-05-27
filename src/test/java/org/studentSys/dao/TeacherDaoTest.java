@@ -34,4 +34,9 @@ public class TeacherDaoTest {
         System.out.println(teacherDao.queryPasswd(tid));
     }
 
+    @Test
+    public void queryByXid() throws Exception {
+        int xid = 1;
+        System.out.println(teacherDao.queryByXid(xid));
+    }
 }
