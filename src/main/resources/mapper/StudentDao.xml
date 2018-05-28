@@ -47,4 +47,14 @@
         FROM teacher
         WHERE xid = #{xid}
     </select>
+    <!--8.查询成绩-->
+    <select id="queryGrades" resultType="org.studentSys.dto.StudentGrade">
+        SELECT
+            grade.sid     AS sid,
+            course.cname  AS cname,
+            course.cyear  AS cyear,
+            grade.gresult AS gresult
+        FROM grade
+            JOIN course ON grade.cid = course.cid AND sid = #{sid} AND cyear = #{cyear}
+    </select>
 </mapper>

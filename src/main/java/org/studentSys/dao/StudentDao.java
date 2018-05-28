@@ -1,6 +1,7 @@
 package org.studentSys.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.studentSys.dto.StudentGrade;
 import org.studentSys.entity.Student;
 import org.studentSys.entity.Teacher;
 
@@ -63,4 +64,12 @@ public interface StudentDao {
      * @return
      */
     Teacher queryTeacher(int xid);
+
+    /**
+     * 8.查询成绩
+     * @param sid
+     * @param cyear
+     * @return
+     */
+    List<StudentGrade> queryGrades(@Param("sid")int sid,@Param("cyear")int cyear);
 }

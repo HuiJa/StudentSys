@@ -34,12 +34,5 @@ public class FitnessDaoTest {
         System.out.println(fitness.toString());
     }
 
-    @Test
-    public void queryFitnessesBySid() throws Exception {
-        List<Fitness> fitnessList = fitnessDao.queryFitnessesBySid(8148888);
-        for (Fitness fitness : fitnessList) {
-            System.out.println(fitness);
-        }
-    }
 
 }

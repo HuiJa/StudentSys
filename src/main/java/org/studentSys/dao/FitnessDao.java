@@ -25,10 +25,15 @@ public interface FitnessDao {
     Fitness queryFitness(@Param("sid") int sid, @Param("fyear") int fyear);
 
     /**
-     * 3.根据学号查询体测信息
+     * 3.根据学号查询各项体测信息
      * @param sid
      * @return
      */
-    List<Fitness> queryFitnessesBySid(int sid);
-
+    Double[] queryFheigBySid(int sid);
+    Double[] queryFweigBySid(int sid);
+    Double[] queryFrunBySid(int sid);
+    Double[] queryFjumpBySid(int sid);
+    Double[] queryFwalkBySid(int sid);
+    Double[] queryFupBySid(int sid);
+    Double[] queryFaheadBySid(int sid);
 }

@@ -37,76 +37,131 @@
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
 <script>
-    const data1 = {
-        labels: ["大学英语", "高等数学", "大学物理", "C语言程序设计"],
-        datasets: [
-            {
-                name: "成绩/分", chartType: "bar",
-                values: [73, 74, 75, 75]
+    var url = 'http://localhost:8080/';
+
+    var course1url = url + 'api/course?sid=${sessionScope.student.sid}&cyear=1';
+    var grade1url = url + 'api/grade?sid=${sessionScope.student.sid}&cyear=1';
+    var course1, grade1;
+    Ajax(course1url, function (res) {
+        course1 = JSON.parse(res);
+        Ajax(grade1url, function (res) {
+            grade1 = JSON.parse(res);
+            const data1 = {
+                labels: course1,
+                datasets: [
+                    {
+                        name: "成绩/分", chartType: "bar",
+                        values: grade1
+                    }
+                ]
             }
-        ]
-    }
-    const chart1 = new frappe.Chart("#chart1", {  // or a DOM element,
-        // new Chart() in case of ES6 module with above usage
-        title: "大一选课程及成绩",
-        data: data1,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
-        colors: ['#fd28d4']
-    })
-    const data2 = {
-        labels: ["算法", "微机原理", "离散数学", "数据结构"],
-        datasets: [
-            {
-                name: "成绩/分", chartType: "bar",
-                values: [88, 74, 60, 90]
-            }
-        ]
-    }
-    const chart2 = new frappe.Chart("#chart2", {  // or a DOM element,
-        // new Chart() in case of ES6 module with above usage
-        title: "大二选课程及成绩",
-        data: data2,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
-        colors: ['#51fd4d']
+            const chart1 = new frappe.Chart("#chart1", {  // or a DOM element,
+                // new Chart() in case of ES6 module with above usage
+                title: "大一选课程及成绩",
+                data: data1,
+                type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
+                height: 300,
+                colors: ['#fd1d27']
+            })
+        })
     })
 
-    const data3 = {
-        labels: ["计算机网络", "数据库原理", "编程语言设计", "软件工程"],
-        datasets: [
-            {
-                name: "成绩/分", chartType: "bar",
-                values: [66, 74, 88, 90]
+    var course2url = url + 'api/course?sid=${sessionScope.student.sid}&cyear=2';
+    var grade2url = url + 'api/grade?sid=${sessionScope.student.sid}&cyear=2';
+    var course2, grade2;
+    Ajax(course2url, function (res) {
+        course2 = JSON.parse(res);
+        Ajax(grade2url, function (res) {
+            grade2 = JSON.parse(res);
+            const data2 = {
+                labels: course2,
+                datasets: [
+                    {
+                        name: "成绩/分", chartType: "bar",
+                        values: grade2
+                    }
+                ]
             }
-        ]
-    }
-    const chart3 = new frappe.Chart("#chart3", {  // or a DOM element,
-        // new Chart() in case of ES6 module with above usage
-        title: "大三选课程及成绩",
-        data: data3,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
-        colors: ['#556bfd']
+            const chart2 = new frappe.Chart("#chart2", {  // or a DOM element,
+                // new Chart() in case of ES6 module with above usage
+                title: "大二选课程及成绩",
+                data: data2,
+                type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
+                height: 300,
+                colors: ['#51fd4d']
+            })
+        })
     })
 
-    const data4 = {
-        labels: ["Web程序设计", "Linux操作系统", "安卓程序开发", "信息安全技术"],
-        datasets: [
-            {
-                name: "成绩/分", chartType: "bar",
-                values: [55, 74, 66, 90]
+    var course3url = url + 'api/course?sid=${sessionScope.student.sid}&cyear=3';
+    var grade3url = url + 'api/grade?sid=${sessionScope.student.sid}&cyear=3';
+    var course3, grade3;
+    Ajax(course3url, function (res) {
+        course3 = JSON.parse(res);
+        Ajax(grade3url, function (res) {
+            grade3 = JSON.parse(res);
+            const data3 = {
+                labels: course3,
+                datasets: [
+                    {
+                        name: "成绩/分", chartType: "bar",
+                        values: grade3
+                    }
+                ]
             }
-        ]
-    }
-    const chart4 = new frappe.Chart("#chart4", {  // or a DOM element,
-        // new Chart() in case of ES6 module with above usage
-        title: "大四选课程及成绩",
-        data: data4,
-        type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
-        colors: ['#fdca36']
+            const chart3 = new frappe.Chart("#chart3", {  // or a DOM element,
+                // new Chart() in case of ES6 module with above usage
+                title: "大三选课程及成绩",
+                data: data3,
+                type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
+                height: 300,
+                colors: ['#3363fd']
+            })
+        })
     })
+
+    var course4url = url + 'api/course?sid=${sessionScope.student.sid}&cyear=4';
+    var grade4url = url + 'api/grade?sid=${sessionScope.student.sid}&cyear=4';
+    var course4, grade4;
+    Ajax(course4url, function (res) {
+        course4 = JSON.parse(res);
+        Ajax(grade4url, function (res) {
+            grade4 = JSON.parse(res);
+            const data4 = {
+                labels: course4,
+                datasets: [
+                    {
+                        name: "成绩/分", chartType: "bar",
+                        values: grade4
+                    }
+                ]
+            }
+            const chart4 = new frappe.Chart("#chart4", {  // or a DOM element,
+                // new Chart() in case of ES6 module with above usage
+                title: "大四选课程及成绩",
+                data: data4,
+                type: 'bar', // 'axis-mixed' or 'bar', 'line', 'scatter', 'pie', 'percentage'
+                height: 300,
+                colors: ['#fd2de2']
+            })
+        })
+    })
+
+    function Ajax(url, callback) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', url, true);
+
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    callback(xhr.responseText);
+                }
+            }
+        }
+    }
 </script>
 </body>
 </html>
