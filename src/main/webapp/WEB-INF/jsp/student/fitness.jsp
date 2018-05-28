@@ -37,6 +37,7 @@
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
 <script>
+    //记得localhost都改成局域网或者公网ip
     var url = 'http://localhost:8080/';
 
     var fheigurl = url + 'api/fheig?sid=${sessionScope.student.sid}';

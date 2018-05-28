@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.studentSys.dao.ExtraDao;
 import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
 import org.studentSys.dao.TeacherDao;
@@ -32,6 +33,8 @@ public class TeacherController {
     private StudentDao studentDao;
     @Autowired
     private ReviewDao reviewDao;
+    @Autowired
+    private ExtraDao extraDao;
 
 
     /**
@@ -95,9 +98,10 @@ public class TeacherController {
      *5.展示学生信息
      */
     @RequestMapping(value = "/dataShow")
-    public String grade(@RequestParam("sid") int sid, HttpSession session) {
+    public String grade(@RequestParam("sid") int sid, HttpSession session, Map<String, Object> requestMap) {
         //保持查询目标信息
         session.setAttribute("aim_stu",studentDao.queryStudent(sid));
+        requestMap.put("studentExtras",extraDao.queryExtrasBySid(sid));
         return "/teacher/stu_data";
     }
 }

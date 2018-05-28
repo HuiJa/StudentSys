@@ -4,7 +4,7 @@
 <mapper namespace="org.studentSys.dao.ClassesDao">
     <select id="queryClasses" parameterType="int" resultType="Classes">
         SELECT *
-        FROM class
+        FROM classes
         WHERE xid = #{xid}
     </select>
 </mapper>

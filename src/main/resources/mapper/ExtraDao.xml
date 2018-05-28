@@ -9,6 +9,6 @@
     <select id="queryExtrasBySid" parameterType="int" resultType="Extra">
         SELECT *
         FROM extra
-        WHERE sid = #{sid}
+        WHERE sid = #{sid} ORDER BY estime
     </select>
 </mapper>

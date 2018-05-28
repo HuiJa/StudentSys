@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.studentSys.dao.ExtraDao;
 import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
 import org.studentSys.entity.Review;
@@ -29,6 +30,8 @@ public class StudentController {
     private StudentDao studentDao;
     @Autowired
     private ReviewDao reviewDao;
+    @Autowired
+    private ExtraDao extraDao;
 
     /**
      * 1.学生登录显示，退出
@@ -137,9 +140,10 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/dataShow")
-    public String grade(@RequestParam("sid") int sid, HttpSession session) {
+    public String grade(@RequestParam("sid") int sid, HttpSession session,Map<String, Object> requestMap) {
         //保持查询目标信息
         session.setAttribute("aim_stu",studentDao.queryStudent(sid));
+        requestMap.put("studentExtras",extraDao.queryExtrasBySid(sid));
         return "/student/stu_data";
         //返回student的stu_list主要是因为学生老师的导航栏侧边栏不一样,不然可以直接合为一个
     }

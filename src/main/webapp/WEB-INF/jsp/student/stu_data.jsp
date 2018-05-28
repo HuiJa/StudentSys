@@ -30,6 +30,33 @@
             <div id="chart5"></div>
             <div id="chart6"></div>
             <div id="chart7"></div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>${sessionScope.aim_stu.sname}的课外活动</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>活动开始时间</th>
+                            <th>活动结束时间</th>
+                            <th>活动类型</th>
+                            <th>活动内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="studentExtra" items="${requestScope.studentExtras}">
+                            <tr>
+                                <td><fmt:formatDate value="${studentExtra.estime}" pattern="yyyy-MM-dd"/></td>
+                                <td><fmt:formatDate value="${studentExtra.eetime}" pattern="yyyy-MM-dd"/></td>
+                                <td>${studentExtra.etype}</td>
+                                <td>${studentExtra.ename}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--table1-->
             <div class="col-md-6">
                 <form action="${pageContext.request.contextPath }/student/comment" method="post">
                     <div class="input-group">
