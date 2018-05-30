@@ -39,9 +39,9 @@
 </div>
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
+<script src="${pageContext.request.contextPath}/resources/js/ipconfig.js"></script>
 <script>
-    //记得localhost都改成局域网或者公网ip
-    var url = 'http://localhost:8080/';
+    var url = ip+':8080/';
 
     var fheigurl = url + 'api/fheig?sid=${sessionScope.student.sid}';
     var fweigurl = url + 'api/fweig?sid=${sessionScope.student.sid}';

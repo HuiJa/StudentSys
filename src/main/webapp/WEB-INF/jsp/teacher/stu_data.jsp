@@ -77,8 +77,9 @@
 </div>
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
+<script src="${pageContext.request.contextPath}/resources/js/ipconfig.js"></script>
 <script>
-    var url = 'http://localhost:8080/';
+    var url = ip+':8080/';
 
     var course1url = url + 'api/course?sid=${sessionScope.aim_stu.sid}&cyear=1';
     var grade1url = url + 'api/grade?sid=${sessionScope.aim_stu.sid}&cyear=1';

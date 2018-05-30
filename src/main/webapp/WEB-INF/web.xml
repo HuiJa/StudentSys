@@ -43,6 +43,14 @@
     <error-code>404</error-code>
     <location>/404.jsp</location>
   </error-page>
+  <error-page>
+    <error-code>400</error-code>
+    <location>/400.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/500.jsp</location>
+  </error-page>
 
   <!--5.设置会话超时,30分钟-->
   <session-config>
