@@ -43,4 +43,9 @@
     <error-code>404</error-code>
     <location>/404.jsp</location>
   </error-page>
+
+  <!--5.设置会话超时,30分钟-->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 </web-app>

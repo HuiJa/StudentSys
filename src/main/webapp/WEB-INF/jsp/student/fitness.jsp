@@ -23,6 +23,9 @@
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
             </p>
             <!--主体内容-->
+            <div class="panel-heading text-center">
+                <h2>体测轨迹</h2>
+            </div>
             <div id="chart1"></div>
             <div id="chart2"></div>
             <div id="chart3"></div>
