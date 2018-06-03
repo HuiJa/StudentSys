@@ -25,6 +25,33 @@
             <!--主体内容-->
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
+                    <h2>${sessionScope.student.sname}的课外活动</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>活动开始时间</th>
+                            <th>活动结束时间</th>
+                            <th>活动类型</th>
+                            <th>活动内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="ownExtra" items="${requestScope.ownExtras}">
+                            <tr>
+                                <td><fmt:formatDate value="${ownExtra.estime}" pattern="yyyy-MM-dd"/></td>
+                                <td><fmt:formatDate value="${ownExtra.eetime}" pattern="yyyy-MM-dd"/></td>
+                                <td>${ownExtra.etype}</td>
+                                <td>${ownExtra.ename}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--table1-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
                     <h2>自我评价</h2>
                 </div>
                 <div class="panel-body">

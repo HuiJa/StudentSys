@@ -43,17 +43,17 @@
     <error-code>404</error-code>
     <location>/404.jsp</location>
   </error-page>
-  <error-page>
+  <!--<error-page>
     <error-code>400</error-code>
     <location>/400.jsp</location>
-  </error-page>
-  <error-page>
+  </error-page>-->
+  <!--<error-page>
     <error-code>500</error-code>
     <location>/500.jsp</location>
-  </error-page>
+  </error-page>-->
 
-  <!--5.设置会话超时,30分钟-->
+  <!--5.设置会话超时,15分钟-->
   <session-config>
-    <session-timeout>30</session-timeout>
+    <session-timeout>15</session-timeout>
   </session-config>
 </web-app>

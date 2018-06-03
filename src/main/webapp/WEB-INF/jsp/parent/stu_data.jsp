@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: HuiJa
-  Date: 2018/5/24
+  Date: 2018/6/1
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
-<%@include file="../common/student_navbar.jsp" %>
+<%@include file="../common/parent_navbar.jsp" %>
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
 
@@ -61,7 +61,7 @@
                 </div>
             </div><!--table1-->
             <div class="col-md-6">
-                <form action="${pageContext.request.contextPath }/student/comment" method="post">
+                <form action="${pageContext.request.contextPath }/parent/comment" method="post">
                     <div class="input-group">
                         <input type="text" name="comment" class="form-control input-lg" placeholder="给他一个评价">
                         <button type="submit" class="btn btn-success btn-block">提交</button>
@@ -70,7 +70,7 @@
             </div><!--add comment-->
         </div>
 
-        <%@include file="../common/student_sidebar.jsp" %>
+        <%@include file="../common/parent_sidebar.jsp" %>
     </div>
 
     <%@include file="../common/foot.jsp" %>
@@ -290,6 +290,7 @@
             })
         })
     })
+
 
     function Ajax(url, callback) {
         var xhr = new XMLHttpRequest();

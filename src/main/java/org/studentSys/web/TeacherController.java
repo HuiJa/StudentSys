@@ -46,7 +46,6 @@ public class TeacherController {
      */
     @RequestMapping(value = "/index-show")
     public String teaIndexShow(Map<String, Object> requestMap, HttpSession session) {
-        requestMap.put("teacher", (Teacher) session.getAttribute("teacher"));//主页显示用户信息用
         String view = "/index/teacher_index";
         return view;
     }
@@ -85,7 +84,7 @@ public class TeacherController {
      *4.评价
      */
     @RequestMapping(value = "/comment")
-    public String studentReview(@RequestParam("comment") String comment, HttpSession session) {
+    public String tacherReview(@RequestParam("comment") String comment, HttpSession session) {
         Student student=(Student) session.getAttribute("aim_stu");
         if ("".equals(comment) == false) {
             Review review = new Review(student.getSid(), EvaluatorEnums.教师, comment, new Date());
@@ -98,7 +97,7 @@ public class TeacherController {
      *5.展示学生信息
      */
     @RequestMapping(value = "/dataShow")
-    public String grade(@RequestParam("sid") int sid, HttpSession session, Map<String, Object> requestMap) {
+    public String data(@RequestParam("sid") int sid, HttpSession session, Map<String, Object> requestMap) {
         //保持查询目标信息
         session.setAttribute("aim_stu",studentDao.queryStudent(sid));
         requestMap.put("studentExtras",extraDao.queryExtrasBySid(sid));

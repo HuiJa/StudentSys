@@ -15,7 +15,7 @@
 
 <body class="bg-danger">
 <div class="container"> 
-    <form class="form-signin" name="form" action="/user/passd-execution" method="post">
+    <form class="form-signin" name="form" action="/user/passwd-execution" method="post">
         <div class="row" style="margin-top:30px;">
             <div class="col-md-6" style="border-right:1px solid #ddd;">
                 <div class="well col-md-10">
@@ -44,6 +44,7 @@
                 <ul>
                     <li>学生初始密码为<em>now888</em>，登录后请及时修改密码</li>
                     <li>老师初始密码为<em>now888</em>，登录后请及时修改密码</li>
+                    <li>家长初始密码为<em>now888</em>，登录后请及时修改密码</li>
                 </ul>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: HuiJa
-  Date: 2018/5/24
+  Date: 2018/6/1
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -9,11 +9,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>学生信息页</title>
+    <title>孩子成绩页</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 <body>
-<%@include file="../common/student_navbar.jsp" %>
+<%@include file="../common/parent_navbar.jsp" %>
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
 
@@ -35,7 +35,7 @@
             <div id="chart7"></div>
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h2>${sessionScope.aim_stu.sname}的课外活动</h2>
+                    <h2>${sessionScope.child.sname}的课外活动</h2>
                 </div>
                 <div class="panel-body">
                     <table class="table table-hover">
@@ -61,28 +61,38 @@
                 </div>
             </div><!--table1-->
             <div class="col-md-6">
-                <form action="${pageContext.request.contextPath }/student/comment" method="post">
+                <form action="${pageContext.request.contextPath }/parent/child_comment" method="post">
                     <div class="input-group">
                         <input type="text" name="comment" class="form-control input-lg" placeholder="给他一个评价">
                         <button type="submit" class="btn btn-success btn-block">提交</button>
                     </div>
                 </form>
             </div><!--add comment-->
+            <div class="col-md-6">
+                <form action="${pageContext.request.contextPath }/parent/search" method="post">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <input type="text" name="aim" class="form-control input-lg" placeholder="为您的孩子选一个目标">
+                            <button type="submit" class="btn btn-success btn-block">搜索</button>
+                        </div>
+                        </span>
+                    </div>
+                </form>
+            </div><!--Search-->
         </div>
 
-        <%@include file="../common/student_sidebar.jsp" %>
+        <%@include file="../common/parent_sidebar.jsp" %>
     </div>
 
     <%@include file="../common/foot.jsp" %>
 </div>
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
-
 <script>
-    var url = '${pageContext.request.contextPath }/';
+    var url = '${pageContext.request.contextPath }/';//取项目首页url
 
-    var course1url = url + 'api/course?sid=${sessionScope.aim_stu.sid}&cyear=1';
-    var grade1url = url + 'api/grade?sid=${sessionScope.aim_stu.sid}&cyear=1';
+    var course1url = url + 'api/course?sid=${sessionScope.child.sid}&cyear=1';
+    var grade1url = url + 'api/grade?sid=${sessionScope.child.sid}&cyear=1';
     var course1, grade1;
     Ajax(course1url, function (res) {
         course1 = JSON.parse(res);
@@ -108,8 +118,8 @@
         })
     })
 
-    var course2url = url + 'api/course?sid=${sessionScope.aim_stu.sid}&cyear=2';
-    var grade2url = url + 'api/grade?sid=${sessionScope.aim_stu.sid}&cyear=2';
+    var course2url = url + 'api/course?sid=${sessionScope.child.sid}&cyear=2';
+    var grade2url = url + 'api/grade?sid=${sessionScope.child.sid}&cyear=2';
     var course2, grade2;
     Ajax(course2url, function (res) {
         course2 = JSON.parse(res);
@@ -135,8 +145,8 @@
         })
     })
 
-    var course3url = url + 'api/course?sid=${sessionScope.aim_stu.sid}&cyear=3';
-    var grade3url = url + 'api/grade?sid=${sessionScope.aim_stu.sid}&cyear=3';
+    var course3url = url + 'api/course?sid=${sessionScope.child.sid}&cyear=3';
+    var grade3url = url + 'api/grade?sid=${sessionScope.child.sid}&cyear=3';
     var course3, grade3;
     Ajax(course3url, function (res) {
         course3 = JSON.parse(res);
@@ -162,8 +172,8 @@
         })
     })
 
-    var course4url = url + 'api/course?sid=${sessionScope.aim_stu.sid}&cyear=4';
-    var grade4url = url + 'api/grade?sid=${sessionScope.aim_stu.sid}&cyear=4';
+    var course4url = url + 'api/course?sid=${sessionScope.child.sid}&cyear=4';
+    var grade4url = url + 'api/grade?sid=${sessionScope.child.sid}&cyear=4';
     var course4, grade4;
     Ajax(course4url, function (res) {
         course4 = JSON.parse(res);
@@ -189,13 +199,13 @@
         })
     })
 
-    var fheigurl = url + 'api/fheig?sid=${sessionScope.aim_stu.sid}';
-    var fweigurl = url + 'api/fweig?sid=${sessionScope.aim_stu.sid}';
-    var frunurl = url + 'api/frun?sid=${sessionScope.aim_stu.sid}';
-    var fjumpurl = url + 'api/fjump?sid=${sessionScope.aim_stu.sid}';
-    var fwalkurl = url + 'api/fwalk?sid=${sessionScope.aim_stu.sid}';
-    var fupurl = url + 'api/fup?sid=${sessionScope.aim_stu.sid}';
-    var faheadurl = url + 'api/fahead?sid=${sessionScope.aim_stu.sid}';
+    var fheigurl = url + 'api/fheig?sid=${sessionScope.child.sid}';
+    var fweigurl = url + 'api/fweig?sid=${sessionScope.child.sid}';
+    var frunurl = url + 'api/frun?sid=${sessionScope.child.sid}';
+    var fjumpurl = url + 'api/fjump?sid=${sessionScope.child.sid}';
+    var fwalkurl = url + 'api/fwalk?sid=${sessionScope.child.sid}';
+    var fupurl = url + 'api/fup?sid=${sessionScope.child.sid}';
+    var faheadurl = url + 'api/fahead?sid=${sessionScope.child.sid}';
     var fheig, fweig, frun, fjump, fwalk, fup, fahead;
     Ajax(fheigurl, function (res) {
         fheig = JSON.parse(res);
@@ -290,6 +300,7 @@
             })
         })
     })
+
 
     function Ajax(url, callback) {
         var xhr = new XMLHttpRequest();

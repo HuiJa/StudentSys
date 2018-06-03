@@ -83,6 +83,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public List<Review> parentReview(Student student) {
+        return reviewDao.queryReviews(student.getSid(),EvaluatorEnums.家长);
+    }
+
+    @Override
     public List<Review> ownReview(Student student) {
         return reviewDao.queryReviews(student.getSid(), EvaluatorEnums.自己);
     }

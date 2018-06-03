@@ -40,7 +40,6 @@ public class StudentController {
      */
     @RequestMapping(value = "/index-show")
     public String stuIndexShow(Map<String, Object> requestMap, HttpSession session) {
-        requestMap.put("student", (Student) session.getAttribute("student"));//主页显示用户信息用
         String view = "/index/student_index";
         return view;
     }
@@ -88,7 +87,7 @@ public class StudentController {
         Student student = (Student) session.getAttribute("student");
         requestMap.put("teacherReviews", (ArrayList) studentService.teacherReview(student));
         requestMap.put("studentReviews", (ArrayList) studentService.studentReview(student));
-        requestMap.put("ownReviews", (ArrayList) studentService.ownReview(student));
+        requestMap.put("parentReviews", (ArrayList) studentService.parentReview(student));
         return "/student/reviews";
     }
 
@@ -96,6 +95,7 @@ public class StudentController {
     public String own(HttpSession session, Map<String, Object> requestMap) {
         Student student = (Student) session.getAttribute("student");
         requestMap.put("ownReviews", (ArrayList) studentService.ownReview(student));
+        requestMap.put("ownExtras",extraDao.queryExtrasBySid(student.getSid()));
         return "/student/own";
     }
 
@@ -132,7 +132,7 @@ public class StudentController {
      * 5.搜索目标
      */
     @RequestMapping(value = "/search")
-    public String grade(@RequestParam("aim") String aim, Map<String, Object> requestMap) {
+    public String search(@RequestParam("aim") String aim, Map<String, Object> requestMap) {
         ArrayList<Student> studentList = (ArrayList) studentDao.queryByLike(aim);
         requestMap.put("students", studentList);
         return "/student/stu_list";
@@ -140,7 +140,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/dataShow")
-    public String grade(@RequestParam("sid") int sid, HttpSession session,Map<String, Object> requestMap) {
+    public String data(@RequestParam("sid") int sid, HttpSession session,Map<String, Object> requestMap) {
         //保持查询目标信息
         session.setAttribute("aim_stu",studentDao.queryStudent(sid));
         requestMap.put("studentExtras",extraDao.queryExtrasBySid(sid));

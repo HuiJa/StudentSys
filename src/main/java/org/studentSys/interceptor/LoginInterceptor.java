@@ -14,7 +14,9 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession session = httpServletRequest.getSession();
-        if (session.getAttribute("student") == null && session.getAttribute("teacher") == null) {
+        if (session.getAttribute("student") == null
+                && session.getAttribute("teacher") == null
+                && session.getAttribute("parent") == null) {
             httpServletResponse.sendRedirect("/login");//这个是和重定向相同
         }
         return true;

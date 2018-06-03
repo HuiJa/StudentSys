@@ -39,9 +39,9 @@
 </div>
 <!--js调用时效果比如侧边栏拉动-->
 <%@include file="../common/end_js.jsp" %>
-<script src="${pageContext.request.contextPath}/resources/js/ipconfig.js"></script>
+
 <script>
-    var url = ip+':8080/';
+    var url = '${pageContext.request.contextPath }/';
 
     var fheigurl = url + 'api/fheig?sid=${sessionScope.student.sid}';
     var fweigurl = url + 'api/fweig?sid=${sessionScope.student.sid}';

@@ -69,6 +69,29 @@
                     </table>
                 </div>
             </div><!--table2-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>家长评价</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>评价时间</th>
+                            <th>评价内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="parentReview" items="${requestScope.parentReviews}">
+                            <tr>
+                                <td><fmt:formatDate value="${parentReview.rdate}" pattern="yyyy-MM-dd"/></td>
+                                <td>${parentReview.rcont}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--table3-->
         </div>
 
         <%@include file="../common/student_sidebar.jsp" %>

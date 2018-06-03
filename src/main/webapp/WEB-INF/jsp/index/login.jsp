@@ -33,6 +33,7 @@
                     <div class="well well-sm" style="text-align:center;">
                         <input type="radio" name="kind" value="tea" required> 老师
                         <input type="radio" name="kind" value="stu" required> 学生
+                        <input type="radio" name="kind" value="par" required> 家长
                     </div>
                     <c:if test="${requestScope.LoginError == 1 }">
                         <span style="color:#f44336;">用户名不存在或者密码错误!请检查后重新输入</span>
@@ -49,6 +50,7 @@
                 <ul>
                     <li>学生使用<em>学号</em>登录，初始密码为<em>now888</em>，登录后请及时修改密码</li>
                     <li>老师请使用<em>工号</em>登录，初始密码为<em>now888</em>，登录后请及时修改密码</li>
+                    <li>家长请使用<em>用户id</em>登录，初始密码为<em>now888</em>，登录后请及时修改密码</li>
                 </ul>
             </div>
         </div>

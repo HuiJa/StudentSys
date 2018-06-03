@@ -34,5 +34,6 @@ public interface StudentService {
      */
     List<Review> teacherReview(Student student);
     List<Review> studentReview(Student student);
+    List<Review> parentReview(Student student);
     List<Review> ownReview(Student student);
 }

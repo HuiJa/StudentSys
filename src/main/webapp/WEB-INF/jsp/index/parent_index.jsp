@@ -9,13 +9,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>教师主页</title>
+    <title>家长主页</title>
     <%@include file="../common/head_css.jsp" %>
 </head>
 
 <body>
 
-<%@include file="../common/teacher_navbar.jsp" %>
+<%@include file="../common/parent_navbar.jsp" %>
 
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
@@ -63,7 +63,7 @@
             </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 
-        <%@include file="../common/teacher_sidebar.jsp" %>
+        <%@include file="../common/parent_sidebar.jsp" %>
     </div><!--/row-->
 
     <%@include file="../common/foot.jsp" %>

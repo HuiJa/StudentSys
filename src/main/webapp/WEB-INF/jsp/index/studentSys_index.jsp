@@ -34,6 +34,9 @@
                             <c:if test="${requestScope.teacher != null }">
                                 <li><a href="${pageContext.request.contextPath}/teacher/index-show">TeacherHome</a></li>
                             </c:if>
+                            <c:if test="${requestScope.parent != null }">
+                                <li><a href="${pageContext.request.contextPath}/parent/index-show">ParentHome</a></li>
+                            </c:if>
                         </ul>
                     </nav>
                 </div>
