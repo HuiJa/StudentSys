@@ -123,6 +123,7 @@ public class LoginController {
                 break;
             default:
                 requestMap.put("LoginError", "1");
+                break;
         }
         return view;
     }
