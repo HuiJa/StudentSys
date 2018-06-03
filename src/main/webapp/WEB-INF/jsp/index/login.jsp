@@ -16,7 +16,7 @@
 
 <body class="bg-info">
 <div class="container"> 
-    <form class="form-signin" name="form" action="/user/login-exection" method="post">
+    <form class="form-signin" name="form" action="${pageContext.request.contextPath }/user/login-exection" method="post">
         <div class="row" style="margin-top:30px;">
             <div class="col-md-6" style="border-right:1px solid #ddd;">
                 <div class="well col-md-10">

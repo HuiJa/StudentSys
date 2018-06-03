@@ -96,6 +96,7 @@ public class LoginController {
                 } else {
                     requestMap.put("LoginError", "1");
                 }
+                break;
             case "tea"://教师登录
                 result = teacherService.teacherLogin(id, passwd);
                 if (result == 0) {
@@ -106,6 +107,7 @@ public class LoginController {
                 } else {
                     requestMap.put("LoginError", "1");
                 }
+                break;
             case "par"://家长登录
                 result = parentService.parentLogin(id, passwd);
                 if (result == 0) {
@@ -118,7 +120,9 @@ public class LoginController {
                 } else {
                     requestMap.put("LoginError", "1");
                 }
+                break;
             default:
+                requestMap.put("LoginError", "1");
         }
         return view;
     }

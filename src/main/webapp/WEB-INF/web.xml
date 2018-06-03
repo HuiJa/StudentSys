@@ -52,8 +52,8 @@
     <location>/500.jsp</location>
   </error-page>-->
 
-  <!--5.设置会话超时,15分钟-->
+  <!--5.设置会话超时,永不超时-->
   <session-config>
-    <session-timeout>15</session-timeout>
+    <session-timeout>0</session-timeout>
   </session-config>
 </web-app>
