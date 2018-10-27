@@ -17,7 +17,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (session.getAttribute("student") == null
                 && session.getAttribute("teacher") == null
                 && session.getAttribute("parent") == null) {
-            httpServletResponse.sendRedirect("/login");//这个是和重定向相同
+            httpServletResponse.sendRedirect("/student_sys/login");
+            //这个是和重定向相同,/login前面设置的是你部署所在的url(去掉ip和端口),具体看你tomcat部署的设置,我设置的是student_sys
         }
         return true;
     }
