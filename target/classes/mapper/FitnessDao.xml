@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.studentSys.dao.FitnessDao">
+    <!---->
+    <insert id="insertFitness" parameterType="Fitness">
+        INSERT IGNORE INTO fitness (sid, fyear, fheig, fweig, frun, fjump, fwalk, fup, fahead)
+        VALUES (#{sid}, #{fyear}, #{fheig}, #{fweig}, #{frun}, #{fjump}, #{fwalk}, #{fup}, #{fahead})
+    </insert>
+    <select id="queryFitness" resultType="Fitness">
+        SELECT *
+        FROM fitness
+        WHERE sid = #{sid} AND fyear = #{fyear}
+    </select>
+    <!--api-->
+    <select id="queryFheigBySid" parameterType="int" resultType="Double">
+        SELECT fheig FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+    <select id="queryFweigBySid" parameterType="int" resultType="Double">
+        SELECT fweig FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+    <select id="queryFrunBySid" parameterType="int" resultType="Double">
+        SELECT frun FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+    <select id="queryFjumpBySid" parameterType="int" resultType="Double">
+        SELECT fjump FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+    <select id="queryFwalkBySid" parameterType="int" resultType="Double">
+        SELECT fwalk FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+    <select id="queryFupBySid" parameterType="int" resultType="Double">
+        SELECT fup FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+    <select id="queryFaheadBySid" parameterType="int" resultType="Double">
+        SELECT fahead FROM fitness WHERE sid=#{sid} ORDER BY fyear
+    </select>
+
+</mapper>

@@ -3,4 +3,4 @@
 0.clone项目到本地  
 1,直接Mysql Workbench加载sql文件,然后运行,生成数据库  
 或者命令行source *.sql生成数据库  
-2.修改JDBC属性,部署运行 
+2.修改JDBC属性,部署运行(JDK版本需要8及以上) 
