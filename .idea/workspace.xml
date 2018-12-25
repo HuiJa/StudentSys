@@ -6,20 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb87c855-8e0e-4abb-a5ac-a0612ebac93f" name="Default Changelist" comment="comment about deploy in interceptor">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/235cdecd-022b-4472-b51d-a616c1c79a49.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc/storage_v2/_src_/schema/forum.IY3RBQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc/storage_v2/_src_/schema/hibernate.Upgeyg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc/storage_v2/_src_/schema/sampledb.qL_AdQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc/storage_v2/_src_/schema/seckill.L2drdQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc/storage_v2/_src_/schema/ssh_employee.BaPn4Q.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc/storage_v2/_src_/schema/test.kkQ2AA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5a4a014e-fc24-49c6-95b1-4c2480aa26bc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentSys.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StudentSys.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/studentSys/interceptor/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/studentSys/interceptor/LoginInterceptor.java" afterDir="false" />
-    </list>
+    <list default="true" id="cb87c855-8e0e-4abb-a5ac-a0612ebac93f" name="Default Changelist" comment="comment about deploy in interceptor" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +100,7 @@
     <session id="-230182746">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -135,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/studentSys/interceptor/LoginInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -179,7 +167,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="551" />
     <option name="y" value="-24" />
     <option name="width" value="974" />
@@ -453,7 +441,7 @@
       <workItem from="1540621534230" duration="402000" />
       <workItem from="1540623055630" duration="347000" />
       <workItem from="1540623503231" duration="583000" />
-      <workItem from="1545738609305" duration="477000" />
+      <workItem from="1545738609305" duration="796000" />
     </task>
     <task id="LOCAL-00001" summary="comment about deploy in interceptor">
       <created>1540621725645</created>
@@ -485,10 +473,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14407000" />
+    <option name="totallyTimeSpent" value="14726000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6825886" visible="true" weight="0.16204691" />
@@ -501,7 +489,7 @@
       <window_info id="Web" order="7" sideWeight="0.3174114" side_tool="true" visible="true" weight="0.16204691" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.29533115" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.29533115" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -694,7 +682,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/studentSys/interceptor/LoginInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
         </state>
       </provider>
     </entry>
