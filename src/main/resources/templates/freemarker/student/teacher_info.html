@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>教师信息页</title>
+    <!--%@include file="../common/head_css.jsp" %-->
+    <#include "common/head_css.html" />
+</head>
+
+<body>
+
+<!--%@include file="../common/student_navbar.jsp" %-->
+<#include "common/student_navbar.html" />
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            <!--这个是侧边栏按钮,PC全屏默认隐藏,变窄后出现-->
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
+            </p>
+            <!--主体内容-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>班主任信息</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>电话</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${teacherMessage.tname}</td>
+                                <td>${teacherMessage.ttele}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--table1-->
+        </div>
+
+        <!--%@include file="../common/student_sidebar.jsp" %-->
+        <#include "common/student_sidebar.html"/>
+    </div><!--/row-->
+
+    <!--%@include file="../common/foot.jsp" %-->
+    <#include "common/foot.html" />
+</div><!--/.container-->
+
+<!--%@include file="../common/end_js.jsp" %-->
+<#include "common/end_js.html" />
+
+</body>
+</html>

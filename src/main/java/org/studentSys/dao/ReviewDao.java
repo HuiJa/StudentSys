@@ -21,7 +21,7 @@ public interface ReviewDao {
      * @param sid
      * @return
      */
-    List<Review> queryReviews(@Param("sid")int sid,@Param("rtype") EvaluatorEnums rtype);
+    List<Review> queryReviews(@Param("sid") int sid, @Param("rtype") EvaluatorEnums rtype);
 
     /**
      * 3.删除评论

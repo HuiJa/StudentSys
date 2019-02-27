@@ -1,0 +1,44 @@
+# tomcat
+server:
+  port: 8080
+  servlet:
+    context-path: /StudentSys
+
+# jdbc properties
+jdbc:
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/student_sys?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+  username: root
+  password: 123456
+
+# mybatis
+mybatis_config_file: mybatis-config.xml
+mapper_path: /mapper/**.xml
+entity_package: org.studentSys.entity
+
+# static source
+spring:
+  mvc:
+    static-path-pattern: /static/**
+# freemarker
+## 后缀
+  freemarker:
+    suffix: .html
+## request map ${request.contextPath}
+    request-context-attribute: request
+    allow-request-override: false
+    allow-session-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    template-loader-path: classpath:/templates/freemarker
+    settings.template_update_delay: 0
+    settings.default_encoding: UTF-8
+    settings.classic_compatible: true
+    order: 1

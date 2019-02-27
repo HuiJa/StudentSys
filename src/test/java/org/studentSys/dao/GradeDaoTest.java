@@ -2,25 +2,21 @@ package org.studentSys.dao;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.studentSys.entity.Grade;
 import org.studentSys.util.DateFormatUtil;
 
-import javax.annotation.Resource;
-
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by HuiJa on 2018/5/7.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-//告诉junit spring配置文件的位置
-@ContextConfiguration({"classpath:spring-config/spring-dao.xml"})
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class GradeDaoTest {
-    @Resource
+    @Autowired
     private GradeDao gradeDao;
 
     @Test

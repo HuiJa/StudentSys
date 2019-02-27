@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>学生列表</title>
+    <!--%@include file="../common/head_css.jsp" %-->
+    <#include "common/head_css.html" />
+</head>
+
+<body>
+
+<!--%@include file="../common/parent_navbar.jsp" %-->
+<#include "common/parent_navbar.html" />
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            <!--这个是侧边栏按钮,PC全屏默认隐藏,变窄后出现-->
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">SideBar</button>
+            </p>
+            <!--主体内容-->
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h2>学生列表</h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>专业</th>
+                            <th>最终去向</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <#list students as student>
+                                <tr>
+                                    <td>${student.sname}</td>
+                                    <td>${student.smajor}</td>
+                                    <td>${student.sresult}</td>
+                                    <td>
+                                        <a href="${request.contextPath}/parent/dataShow?sid=${student.sid?c}">
+                                            <button class="btn btn-xs btn-danger" type="button">查看基本信息</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </#list>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--stu_list-->
+        </div>
+
+        <!--%@include file="../common/parent_sidebar.jsp" %-->
+        <#include "common/parent_sidebar.html"/>
+    </div><!--/row-->
+
+    <!--%@include file="../common/foot.jsp" %-->
+    <#include "common/foot.html" />
+</div><!--/.container-->
+
+<!--%@include file="../common/end_js.jsp" %-->
+<#include "common/end_js.html" />
+
+</body>
+</html>

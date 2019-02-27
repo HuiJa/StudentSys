@@ -25,7 +25,7 @@ public interface StudentService {
      * @param spasswd
      * @return 0修改成功 -1修改失败
      */
-    int studentPasswd(int sid,String spasswd);
+    int studentPasswd(int sid, String spasswd);
 
     /**
      * 3.获取评价

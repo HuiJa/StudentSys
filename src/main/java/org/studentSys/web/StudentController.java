@@ -140,7 +140,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/dataShow")
-    public String data(@RequestParam("sid") int sid, HttpSession session,Map<String, Object> requestMap) {
+    public String data(@RequestParam("sid") int sid, HttpSession session, Map<String, Object> requestMap) {
         //保持查询目标信息
         session.setAttribute("aim_stu",studentDao.queryStudent(sid));
         requestMap.put("studentExtras",extraDao.queryExtrasBySid(sid));

@@ -1,7 +1,5 @@
 package org.studentSys.entity;
 
-import org.studentSys.util.EncryptionUtil;
-
 /**
  * Created by HuiJa on 2018/5/7.
  */

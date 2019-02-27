@@ -2,19 +2,15 @@ package org.studentSys.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.studentSys.util.EncryptionUtil;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Created by HuiJa on 2018/4/26.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring-config/spring-dao.xml",
-        "classpath:spring-config/spring-service.xml"})
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class StudentServiceTest {
 
     //创建日志对象

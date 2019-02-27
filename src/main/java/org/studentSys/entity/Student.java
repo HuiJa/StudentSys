@@ -4,7 +4,6 @@ package org.studentSys.entity;
 import org.studentSys.enums.SexEnums;
 import org.studentSys.enums.SmajorEnums;
 import org.studentSys.enums.SpeoEnums;
-import org.studentSys.util.EncryptionUtil;
 
 /**
  * Created by HuiJa on 2018/4/26.

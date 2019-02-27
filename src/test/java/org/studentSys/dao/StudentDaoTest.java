@@ -1,28 +1,27 @@
 package org.studentSys.dao;
 
-import org.studentSys.entity.Student;
-import org.studentSys.enums.SexEnums;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.studentSys.entity.Student;
+import org.studentSys.enums.SexEnums;
 import org.studentSys.enums.SmajorEnums;
 import org.studentSys.enums.SpeoEnums;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * Created by HuiJa on 2018/4/26.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-//告诉junit spring配置文件的位置
-@ContextConfiguration({"classpath:spring-config/spring-dao.xml"})
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class StudentDaoTest {
 
 
     //这边注入一直显示错误,但其实没有错
-    @Resource
+    @Autowired
     private StudentDao studentDao;
 
     @Test

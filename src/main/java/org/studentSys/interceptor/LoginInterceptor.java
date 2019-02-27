@@ -1,5 +1,6 @@
 package org.studentSys.interceptor;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,15 +11,18 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by HuiJa on 2018/5/17.
  */
+@Component
 public class LoginInterceptor implements HandlerInterceptor {
+    //server.servlet.context-path=/StudentSys
+    static final String context_path="/StudentSys";
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession session = httpServletRequest.getSession();
         if (session.getAttribute("student") == null
                 && session.getAttribute("teacher") == null
                 && session.getAttribute("parent") == null) {
-            httpServletResponse.sendRedirect("/StudentSys/login");
-            // //前面可以加你自己部署的项目url位置,具体的看自己tomcat的设置,默认直接/
+            httpServletResponse.sendRedirect(context_path+"/login");
+            return false;
         }
         return true;
     }

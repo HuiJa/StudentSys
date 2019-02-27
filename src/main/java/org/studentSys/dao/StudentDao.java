@@ -71,5 +71,5 @@ public interface StudentDao {
      * @param cyear
      * @return
      */
-    List<StudentGrade> queryGrades(@Param("sid")int sid,@Param("cyear")int cyear);
+    List<StudentGrade> queryGrades(@Param("sid") int sid, @Param("cyear") int cyear);
 }

@@ -3,8 +3,6 @@ package org.studentSys.dao;
 import org.apache.ibatis.annotations.Param;
 import org.studentSys.entity.Fitness;
 
-import java.util.List;
-
 /**
  * Created by HuiJa on 2018/5/1.
  */

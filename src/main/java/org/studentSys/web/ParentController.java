@@ -8,7 +8,6 @@ import org.studentSys.dao.ExtraDao;
 import org.studentSys.dao.ParentDao;
 import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
-import org.studentSys.entity.Parent;
 import org.studentSys.entity.Review;
 import org.studentSys.entity.Student;
 import org.studentSys.entity.Teacher;

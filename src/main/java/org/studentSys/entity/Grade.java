@@ -2,7 +2,6 @@ package org.studentSys.entity;
 
 import org.studentSys.util.DateFormatUtil;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 /**

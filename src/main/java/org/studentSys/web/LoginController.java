@@ -15,7 +15,6 @@ import org.studentSys.entity.Teacher;
 import org.studentSys.service.ParentService;
 import org.studentSys.service.StudentService;
 import org.studentSys.service.TeacherService;
-import org.studentSys.util.EncryptionUtil;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -25,7 +24,7 @@ import java.util.Map;
  */
 @Controller
 public class LoginController {
-    //private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private StudentService studentService;
     @Autowired
@@ -46,6 +45,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/Introduction")
     public String introdution(HttpSession session, Map<String, Object> requestMap) {
+        log.info("====>>进入介绍页面");
         Student student = (Student) session.getAttribute("student");
         Teacher teacher = (Teacher) session.getAttribute("teacher");
         if (student != null) {
@@ -64,7 +64,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/login")
     public String index() {
-        return "/index/login";//index/login.jsp,这个根据前置后置设定来查找
+        return "/index/login";//index/login.html,这个根据前置后置设定来查找
     }
 
     /**
@@ -135,7 +135,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/passwd")
     public String passwd() {
-        return "/index/passwd";//index/login.jsp,这个根据前置后置设定来查找
+        return "/index/passwd";//index/login.html,这个根据前置后置设定来查找
     }
 
     @RequestMapping(value = "/user/passwd-execution")

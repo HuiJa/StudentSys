@@ -1,6 +1,5 @@
 package org.studentSys.service;
 
-import org.springframework.transaction.annotation.Transactional;
 import org.studentSys.entity.Student;
 
 /**

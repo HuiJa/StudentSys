@@ -2,24 +2,21 @@ package org.studentSys.dao;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.studentSys.entity.Fitness;
-
-import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by HuiJa on 2018/5/1.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-//告诉junit spring配置文件的位置
-@ContextConfiguration({"classpath:spring-config/spring-dao.xml"})
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class FitnessDaoTest {
 
 
     //这边注入一直显示错误,但其实没有错,改一下判断等级就好了
-    @Resource
+    @Autowired
     private FitnessDao fitnessDao;
 
     @Test
