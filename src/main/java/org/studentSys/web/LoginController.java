@@ -52,7 +52,9 @@ public class LoginController {
             requestMap.put("student", "student");
         } else if (teacher != null) {
             requestMap.put("teacher", "teacher");
-        } else requestMap.put("parent", "parent");
+        } else {
+            requestMap.put("parent", "parent");
+        }
         //因为这个页面不需要显示用户信息,只需要判断登录信息,从简了
         return "/index/studentSys_index";
     }

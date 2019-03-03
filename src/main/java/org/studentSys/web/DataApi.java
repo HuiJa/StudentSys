@@ -1,14 +1,13 @@
 package org.studentSys.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.studentSys.dao.FitnessDao;
-import org.studentSys.dao.StudentDao;
-import org.studentSys.dto.StudentGrade;
-
-import java.util.ArrayList;
+import org.studentSys.service.StudentService;
 
 /**
  * Created by HuiJa on 2018/5/27.
@@ -16,34 +15,23 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping(value = "/api")
 public class DataApi {
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
-    StudentDao studentDao;
+    StudentService studentService;
     @Autowired
     FitnessDao fitnessDao;
 
     //成绩相关
     @RequestMapping(value = "/course")
     public String[] getCourse(@RequestParam("sid") int sid, @RequestParam("cyear") int cyear) {
-        ArrayList<StudentGrade> studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
-        String[] s = new String[studentGrades.size()];
-        int i = 0;
-        for (StudentGrade studentGrade : studentGrades) {
-            s[i] = studentGrade.getCname();
-            i++;
-        }
-        return s;
+        //log.info("====>>课程查询"+sid+" "+cyear);
+        return studentService.getCourse(sid, cyear);
     }
 
     @RequestMapping(value = "/grade")
     public int[] getGrade(@RequestParam("sid") int sid, @RequestParam("cyear") int cyear) {
-        ArrayList<StudentGrade> studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
-        int[] ii = new int[studentGrades.size()];
-        int i = 0;
-        for (StudentGrade studentGrade : studentGrades) {
-            ii[i] = studentGrade.getGresult();
-            i++;
-        }
-        return ii;
+        //log.info("====>>成绩查询"+sid+" "+cyear);
+        return studentService.getGrade(sid, cyear);
     }
 
     //体测相关

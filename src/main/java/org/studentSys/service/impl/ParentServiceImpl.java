@@ -42,8 +42,12 @@ public class ParentServiceImpl implements ParentService{
             parentDao.changePasswd(pid, newPasswd);
             if (oldPasswd.equals(parentDao.queryPasswd(pid)) == false) {
                 return 0;//改密成功
-            } else return 1;
-        } else return 1;
+            } else {
+                return 1;
+            }
+        } else {
+            return 1;
+        }
 
     }
 }
