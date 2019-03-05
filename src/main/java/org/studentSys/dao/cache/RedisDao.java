@@ -1,4 +1,4 @@
-package org.studentSys.dao;
+package org.studentSys.dao.cache;
 
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;

@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.studentSys.dao.RedisDao;
+import org.studentSys.dao.cache.RedisDao;
 import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
 import org.studentSys.dto.StudentGrade;
