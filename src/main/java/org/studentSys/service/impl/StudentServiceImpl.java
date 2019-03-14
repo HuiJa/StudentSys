@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.studentSys.annotation.DoCache;
 import org.studentSys.dao.cache.RedisDao;
 import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
@@ -33,7 +34,9 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private ReviewDao reviewDao;
 
-    //如果需要事务可以使用@Transactional注解
+    // 可以使用多个 redis 实例或同一个 redis 中的不同 db 来做不同模块的缓存, 来解决重复状况, 我这里就不需要了
+    // private static final String CACHE_NAME = "Grades";
+    // 如果需要事务可以使用@Transactional注解
 
     /**
      * 1.学生登录
@@ -107,13 +110,21 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @DoCache(key = "#cyear + 'grades:' + #sid")
     public String[] getCourse(int sid, int cyear) {
         ArrayList<StudentGrade> studentGrades = redisDao.getGrades(sid, cyear);
         if (studentGrades == null) {
-            studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
+            try {
+                studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
+            } catch (Exception e) {
+                log.info("====>>数据库取数据失败!");
+                e.printStackTrace();
+            }
             redisDao.putstudentGrades(studentGrades, cyear);
             log.info("====>>第一次缓存!");
         }
+        log.info("====>>取出需要返回的部分!");
+        // 应该前端进行处理, 减少请求次数
         String[] course = new String[studentGrades.size()];
         int i = 0;
         for (StudentGrade studentGrade : studentGrades) {
@@ -125,6 +136,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @DoCache(key = "#cyear + 'grades:' + #sid")
     public int[] getGrade(int sid, int cyear) {
         ArrayList<StudentGrade> studentGrades = redisDao.getGrades(sid, cyear);
         if (studentGrades == null) {

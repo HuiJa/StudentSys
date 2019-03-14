@@ -29,4 +29,11 @@ public class StudentServiceTest {
     public void studentPasswd() throws Exception {
         System.out.println(studentService.studentPasswd(8148888,"123456"));
     }
+    @Test
+    public void getCourse() throws Exception {
+        String[] courses = studentService.getCourse(8146666, 1);
+        for (String course:courses) {
+            System.out.println(course);
+        }
+    }
 }
