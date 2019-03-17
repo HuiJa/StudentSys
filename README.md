@@ -3,13 +3,12 @@
 - clone项目到本地  
 - 使用 /src/main/resources/dbsql/studentSys.sql生成数据库
 - 启动redis服务器
-- 修改相关配置(properties.yml), 部署运行
+- 修改相关配置(application.yml), 部署运行
 
 >mysql版本是8.*
 >
 >jdk要求8及以上
 >
->redis最好开启, 不开会导致连接超时, 个别页面很慢
 
 #### 登录用户
 
@@ -22,4 +21,3 @@
 |      | 08147777 | now888 |
 |      | 08148888 | now888 |
 | 教师 | 08149999 | now888 |
-

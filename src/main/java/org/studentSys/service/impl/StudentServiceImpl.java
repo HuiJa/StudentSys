@@ -120,8 +120,12 @@ public class StudentServiceImpl implements StudentService {
                 log.info("====>>数据库取数据失败!");
                 e.printStackTrace();
             }
-            redisDao.putstudentGrades(studentGrades, cyear);
-            log.info("====>>第一次缓存!");
+            String result=redisDao.putstudentGrades(studentGrades, cyear);
+            if (result!=null){
+                log.info("====>>第一次缓存!");
+            }else {
+                log.info("====>>缓存失败");
+            }
         }
         log.info("====>>取出需要返回的部分!");
         // 应该前端进行处理, 减少请求次数
@@ -141,8 +145,12 @@ public class StudentServiceImpl implements StudentService {
         ArrayList<StudentGrade> studentGrades = redisDao.getGrades(sid, cyear);
         if (studentGrades == null) {
             studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
-            redisDao.putstudentGrades(studentGrades, cyear);
-            log.info("====>>第一次缓存!");
+            String result=redisDao.putstudentGrades(studentGrades, cyear);
+            if (result!=null){
+                log.info("====>>第一次缓存!");
+            }else {
+                log.info("====>>缓存失败");
+            }
         }
         int[] grade = new int[studentGrades.size()];
         int i = 0;

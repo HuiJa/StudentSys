@@ -69,6 +69,10 @@ public class LoginController {
         return "/index/login";//index/login.html,这个根据前置后置设定来查找
     }
 
+    @RequestMapping(value = "/")
+    public String helloSpring(){
+        return "/index/login";
+    }
     /**
      * 2.登录执行
      *

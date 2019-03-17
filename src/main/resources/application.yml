@@ -10,7 +10,16 @@ eureka:
     # 心跳秒
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 10
-
+# info
+info:
+  app:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    encoding: @project.build.sourceEncoding@
+    context-path: ${spring.cloud.client.hostname}:${server.port}/@project.name@
+    java:
+      version: @java.version@
 # tomcat
 server:
   port: 8080
@@ -62,7 +71,7 @@ spring:
     host: 127.0.0.1
     password: 123456
     port: 6379
-    timeout: 0
+    timeout: 1
     pool:
       max-idle: 100
       min-idle: 1
