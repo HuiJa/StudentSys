@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+
+  client:
+    # false表明自己是server
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    # 关闭自我保护, 客户端开启健康检查
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 6000
+
+spring:
+  application:
+    name: eureka_server
