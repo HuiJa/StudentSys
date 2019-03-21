@@ -1,0 +1,10 @@
+server:
+  port: 8762
+
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    # 注册到另外两个节点实现集群
+    service-url:
+      defaultZone: http://peer1:8761/eureka/,http://peer3:8763/eureka/

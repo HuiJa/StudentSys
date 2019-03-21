@@ -1,21 +1,38 @@
-server:
-  port: 8761
+# 分别启动123启动集群
+spring:
+  profiles:
+    active: peer3
+  application:
+    name: eureka_server
 
 eureka:
   instance:
-    hostname: localhost
+    # 集群情况下单机只能设置hosts来分开各自的hostname
+    # # eureka
+    #127.0.0.1	peer1
+    #127.0.0.1	peer2
+    #127.0.0.1	peer3
+    # hostname: localhost
+    # 续约时间和剔除时间
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 10
 
   client:
-    # false表明自己是server
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    # false表明自己是server, 但是设置为true可以设置Server集群
+    register-with-eureka: true
+    fetch-registry: true
+    # 拉取注册信息时间间隔
+    registry-fetch-interval-seconds: 10
     # 关闭自我保护, 客户端开启健康检查
   server:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 6000
 
-spring:
-  application:
-    name: eureka_server
+info:
+  app:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    encoding: @project.build.sourceEncoding@
+    java:
+      version: @java.version@
