@@ -7,9 +7,9 @@ eureka:
     healthcheck:
       enabled: true
   instance:
-    # 心跳秒
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 10
+    # 续约时间/剔除时间
+    lease-renewal-interval-in-seconds: 15
+    lease-expiration-duration-in-seconds: 45
 # info
 info:
   app:

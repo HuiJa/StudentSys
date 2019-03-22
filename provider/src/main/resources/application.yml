@@ -25,3 +25,10 @@ server:
   port: 8082
   servlet:
     context-path: /provider
+# kafka
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: 192.168.148.131:9092,192.168.148.130:9092,192.168.148.129:9092
+  application:
+    name: kafka-producer

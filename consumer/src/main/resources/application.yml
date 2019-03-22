@@ -28,3 +28,13 @@ server:
   port: 8086
   servlet:
     context-path: /provider
+# kafka
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: 192.168.148.131:9092,192.168.148.130:9092,192.168.148.129:9092
+      enable-auto-commit: true
+      group-id: test
+      auto-offset-reset: latest
+  application:
+    name: kafka-consumer

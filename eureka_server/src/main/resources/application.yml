@@ -14,8 +14,8 @@ eureka:
     #127.0.0.1	peer3
     # hostname: localhost
     # 续约时间和剔除时间
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 15
+    lease-expiration-duration-in-seconds: 45
 
   client:
     # false表明自己是server, 但是设置为true可以设置Server集群
