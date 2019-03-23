@@ -3,11 +3,11 @@
 - clone项目到本地  
 - 使用 /src/main/resources/dbsql/studentSys.sql生成数据库
 - 启动redis服务器
-- 修改相关配置(application.yml), 部署运行
+- 启动eureka_server集群.
+- 修改student_sys相关配置(application.yml), 部署运行
+- 其余module也是注册到eureka_server集群的
 
 >mysql版本是8.*
->
->jdk要求8及以上
 >
 
 #### 登录用户
