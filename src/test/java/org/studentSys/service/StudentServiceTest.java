@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.studentSys.dto.StudentGrade;
+
+import java.util.ArrayList;
 
 /**
  * Created by HuiJa on 2018/4/26.
@@ -31,7 +34,13 @@ public class StudentServiceTest {
     }
     @Test
     public void getCourse() throws Exception {
-        String[] courses = studentService.getCourse(8146666, 1);
+        ArrayList<StudentGrade> arrayList = studentService.getSudentGrades(8146666, 1);
+        String[] courses = new String[arrayList.size()];
+        int i = 0;
+        for (StudentGrade studentGrade : arrayList) {
+            courses[i] = studentGrade.getCname();
+            i++;
+        }
         for (String course:courses) {
             System.out.println(course);
         }

@@ -1,8 +1,10 @@
 package org.studentSys.service;
 
+import org.studentSys.dto.StudentGrade;
 import org.studentSys.entity.Review;
 import org.studentSys.entity.Student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,7 +53,7 @@ public interface StudentService {
      * @param cyear
      * @return
      */
-    String[] getCourse(int sid, int cyear);
+    ArrayList<StudentGrade> getSudentGrades(int sid, int cyear);
 
-    int[] getGrade(int sid, int cyear);
+    //int[] getGrade(int sid, int cyear);
 }

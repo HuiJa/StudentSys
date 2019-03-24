@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.studentSys.dao.StudentDao;
-import org.studentSys.dto.StudentGrade;
 
 import java.util.ArrayList;
 
@@ -26,15 +25,15 @@ public class RedisDaoTest {
     public void testRedis() throws Exception {
         //get and put
         log.info("====>>redis测试开始");
-        ArrayList<StudentGrade> studentGrades = redisDao.getGrades(8148888, 1);
+        ArrayList<Object> studentGrades = redisDao.getArrayListBykey("1");
         if (studentGrades == null) {
             log.info("====>>当前数据没有缓存");
             studentGrades = (ArrayList) studentDao.queryGrades(8148888, 1);
             //System.out.println(studentGrades.toString());
             if (studentGrades != null) {
-                String result = redisDao.putstudentGrades(studentGrades, 1);
+                String result = redisDao.putArrayList(studentGrades, "1");
                 System.out.println(result);
-                studentGrades = redisDao.getGrades(8148888, 1);
+                studentGrades = redisDao.getArrayListBykey("1");
                 log.info("====>>数据缓存成功");
                 System.out.println(studentGrades.toString());
             }

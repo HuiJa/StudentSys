@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.studentSys.annotation.DoCache;
+import org.studentSys.annotation.DoArrayListCache;
 import org.studentSys.dao.cache.RedisDao;
 import org.studentSys.dao.ReviewDao;
 import org.studentSys.dao.StudentDao;
@@ -110,56 +110,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    @DoCache(key = "#cyear + 'grades:' + #sid")
-    public String[] getCourse(int sid, int cyear) {
-        ArrayList<StudentGrade> studentGrades = redisDao.getGrades(sid, cyear);
-        if (studentGrades == null) {
-            try {
-                studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
-            } catch (Exception e) {
-                log.info("====>>数据库取数据失败!");
-                e.printStackTrace();
-            }
-            String result=redisDao.putstudentGrades(studentGrades, cyear);
-            if (result!=null){
-                log.info("====>>第一次缓存!");
-            }else {
-                log.info("====>>缓存失败");
-            }
-        }
-        log.info("====>>取出需要返回的部分!");
-        // 应该前端进行处理, 减少请求次数
-        String[] course = new String[studentGrades.size()];
-        int i = 0;
-        for (StudentGrade studentGrade : studentGrades) {
-            course[i] = studentGrade.getCname();
-            i++;
-        }
-        //log.info("====>>成绩:" + course.toString());
-        return course;
+    @DoArrayListCache(key = "#cyear + 'StudentGrade:' + #sid")
+    public ArrayList<StudentGrade> getSudentGrades(int sid, int cyear) {
+        return (ArrayList) studentDao.queryGrades(sid, cyear);
+        //return studentGrades;
     }
-
-    @Override
-    @DoCache(key = "#cyear + 'grades:' + #sid")
-    public int[] getGrade(int sid, int cyear) {
-        ArrayList<StudentGrade> studentGrades = redisDao.getGrades(sid, cyear);
-        if (studentGrades == null) {
-            studentGrades = (ArrayList) studentDao.queryGrades(sid, cyear);
-            String result=redisDao.putstudentGrades(studentGrades, cyear);
-            if (result!=null){
-                log.info("====>>第一次缓存!");
-            }else {
-                log.info("====>>缓存失败");
-            }
-        }
-        int[] grade = new int[studentGrades.size()];
-        int i = 0;
-        for (StudentGrade studentGrade : studentGrades) {
-            grade[i] = studentGrade.getGresult();
-            i++;
-        }
-        //log.info("====>>成绩:" + grade.toString());
-        return grade;
-    }
-
 }

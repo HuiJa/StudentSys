@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.studentSys.dao.FitnessDao;
+import org.studentSys.dto.StudentGrade;
 import org.studentSys.service.StudentService;
+
+import java.util.ArrayList;
 
 /**
  * Created by HuiJa on 2018/5/27.
@@ -27,13 +30,29 @@ public class DataApi {
     @RequestMapping(value = "/course")
     public String[] getCourse(@RequestParam("sid") int sid, @RequestParam("cyear") int cyear) {
         //log.info("====>>课程查询"+sid+" "+cyear);
-        return studentService.getCourse(sid, cyear);
+        //return studentService.getCourse(sid, cyear);
+        ArrayList<StudentGrade> arrayList = studentService.getSudentGrades(sid, cyear);
+        String[] courses = new String[arrayList.size()];
+        int i = 0;
+        for (StudentGrade studentGrade : arrayList) {
+            courses[i] = studentGrade.getCname();
+            i++;
+        }
+        return courses;
     }
 
     @RequestMapping(value = "/grade")
     public int[] getGrade(@RequestParam("sid") int sid, @RequestParam("cyear") int cyear) {
         //log.info("====>>成绩查询"+sid+" "+cyear);
-        return studentService.getGrade(sid, cyear);
+        //return studentService.getGrade(sid, cyear);
+        ArrayList<StudentGrade> arrayList = studentService.getSudentGrades(sid, cyear);
+        int[] grades = new int[arrayList.size()];
+        int i = 0;
+        for (StudentGrade studentGrade : arrayList) {
+            grades[i] = studentGrade.getGresult();
+            i++;
+        }
+        return grades;
     }
 
     //体测相关

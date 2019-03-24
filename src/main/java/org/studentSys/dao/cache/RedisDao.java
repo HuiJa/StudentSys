@@ -30,28 +30,28 @@ public class RedisDao {
     }*/
 
     /**
-     * @param sid
-     * @return 从redis内取数据
+     * 从redis内取ArrayList数据
      */
-    public ArrayList<StudentGrade> getGrades(int sid, int cyear) {
+    //public ArrayList<StudentGrade> getGrades(int sid, int cyear) {
+    public ArrayList<Object> getArrayListBykey(String key) {
         //redis操作逻辑
         try {
             //获取jedis对象
             Jedis jedis = jedisPool.getResource();
             try {
                 //用于取数据的key
-                String key = cyear + "grades:" + sid;
+                //String key = cyear + "grades:" + sid;
                 // 采用自定义序列化protostuff, 效率+空间
                 // 尝试获取value
                 byte[] bytes = jedis.get(key.getBytes());
                 if (bytes != null) {
                     //空对象接受反序列化的内容并返回
                     //包装一层,来适配protostuff的序列号api
-                    CacheEntry cacheEntry=schema.newMessage();
+                    CacheEntry cacheEntry = schema.newMessage();
                     //反序列化
                     ProtostuffIOUtil.mergeFrom(bytes, cacheEntry, schema);
                     //得到想要的结果
-                    ArrayList<StudentGrade> studentGrades = cacheEntry.getstudentGrades();
+                    ArrayList<Object> studentGrades = cacheEntry.getarrayList();
                     return studentGrades;
                 }
             } finally {
@@ -63,14 +63,18 @@ public class RedisDao {
         return null;
     }
 
-    public String putstudentGrades(ArrayList<StudentGrade> studentGrades, int cyear) {
+    /**
+     * 存入ArrayList
+     */
+    //public String putstudentGrades(ArrayList<StudentGrade> studentGrades, int cyear) {
+    public String putArrayList(ArrayList<Object> arrayList, String key) {
         // set Object(Seckill) -> 序列化 -> byte[]
         try {
             Jedis jedis = jedisPool.getResource();
             try {
                 //用于存数据的key, 直接取List第一个
-                String key = cyear + "grades:" + studentGrades.get(0).getSid();
-                CacheEntry cacheEntry=new CacheEntry(studentGrades);
+                //String key = cyear + "grades:" + studentGrades.get(0).getSid();
+                CacheEntry cacheEntry = new CacheEntry(arrayList);
                 //将传入的studentGrades序列号
                 byte[] bytes = ProtostuffIOUtil.toByteArray(cacheEntry, schema,
                         LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
