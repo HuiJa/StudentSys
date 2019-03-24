@@ -13,9 +13,18 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>StudentSys</name>
     <description>Student System</description>
+
     <modules>
+        <!--client:8765-->
         <module>eureka_client</module>
+        <!--server:8761, 8762, 8763-->
         <module>eureka_server</module>
+        <!--producer:8082, 名字起错了...-->
+        <module>provider</module>
+        <!--consumer:8086-->
+        <module>consumer</module>
+        <!--JPA:8181-->
+        <module>jpa</module>
     </modules>
 
     <properties>

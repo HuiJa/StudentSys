@@ -1,0 +1,22 @@
+# tomcat
+server:
+  port: 8181
+
+# database
+spring:
+  application:
+    name: jpa
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/student_sys?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+  jpa:
+    hibernate:
+      # 是否更新表, hibernate的几个特性.create(删掉创建), create-drop(删掉创建退出再删), update(不同则更新表格式), validate(不同则报错),
+      ddl-auto: validate
+    show-sql: true
+    # format_sql: 显示sql前格式化
+    properties:
+      hibernate:
+        format_sql: true
