@@ -27,6 +27,10 @@
         <module>jpa</module>
         <!--global:8282-->
         <module>global</module>
+        <!--eureka_provider:8383-->
+        <module>eureka_provider</module>
+        <!--ribbon:8484-->
+        <module>ribbon</module>
     </modules>
 
     <properties>
