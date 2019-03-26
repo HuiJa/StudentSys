@@ -25,6 +25,8 @@
         <module>consumer</module>
         <!--JPA:8181-->
         <module>jpa</module>
+        <!--global:8282-->
+        <module>global</module>
     </modules>
 
     <properties>
